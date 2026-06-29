@@ -120,7 +120,8 @@
 <script>
 /* ---------------- DADOS DO PROGRAMA ---------------- */
 const PROGRAM = {
-  push:{ title:"Dia 1 — Push", sub:"Peito/ombro pesado + tríceps", ex:[
+  push:{ title:"Dia 1 — Push", sub:"Peito/ombro pesado + tríceps",
+    warm:[["Band Pull-Apart","2×15"],["Shoulder Dislocates (bastão/banda)","2×10"],["Wall Slides","2×10"]], ex:[
     {n:"Supino com Barra", sets:4, reps:"8–10", w:"45kg", rpe:"7–8"},
     {n:"Desenvolvimento com Barra (OHP)", sets:3, reps:"10", w:"12kg", rpe:"7"},
     {n:"Supino Inclinado c/ Haltere", sets:3, reps:"12", w:"17,5kg", rpe:"7"},
@@ -128,14 +129,16 @@ const PROGRAM = {
     {n:"Tricep Pushdown (cabo)", sets:3, reps:"15", w:"a calibrar", rpe:"7"},
     {n:"Pallof Press — core", sets:3, reps:"12/lado", w:"a calibrar", rpe:"—"},
   ]},
-  pull:{ title:"Dia 2 — Pull", sub:"1 vertical + postural, pouco bíceps", ex:[
+  pull:{ title:"Dia 2 — Pull", sub:"1 vertical + postural, pouco bíceps",
+    warm:[["Band Pull-Apart","2×15"],["Scapular Pull-Up / Dead Hang","2×8–10"],["Wall Slides","2×10"]], ex:[
     {n:"Puxada Frontal (barra)", sets:4, reps:"10", w:"55kg", rpe:"7"},
     {n:"Remada Apoiada no Peito (neutra)", sets:3, reps:"12", w:"20kg", rpe:"7"},
     {n:"Crucifixo Invertido c/ Haltere", sets:3, reps:"15", w:"~6–8kg", rpe:"7"},
     {n:"Rosca Direta c/ Barra", sets:3, reps:"12", w:"15kg", rpe:"7"},
     {n:"Ab Wheel — core", sets:3, reps:"8–12", w:"corporal", rpe:"—"},
   ]},
-  perna:{ title:"Dia 3 — Perna", sub:"Ênfase quadríceps / agachamento", ex:[
+  perna:{ title:"Dia 3 — Perna", sub:"Ênfase quadríceps / agachamento",
+    warm:[["Squat Opener","60s"],["Knight Stretch","60s/lado"],["Borboleta","60s"],["Pigeon Stretch","60s/lado"],["Forearm Stretch","60s"],["Cobra to Prayer","60s"],["Leg Swings","2×10/perna"],["Agachamento Livre","2×12"]], ex:[
     {n:"Agachamento (Smith)", sets:4, reps:"10", w:"20kg/lado", rpe:"7"},
     {n:"Hack Squat", sets:3, reps:"12", w:"20kg/lado", rpe:"7"},
     {n:"Cadeira Extensora", sets:3, reps:"15", w:"52,5kg", rpe:"7"},
@@ -143,7 +146,8 @@ const PROGRAM = {
     {n:"Panturrilha no Leg Press", sets:3, reps:"15", w:"60kg", rpe:"7"},
     {n:"Prancha — core", sets:3, reps:"40–60s", w:"corporal", rpe:"—"},
   ]},
-  upper:{ title:"Dia 4 — Upper", sub:"Empurrar #2 + braços + 1 remada", ex:[
+  upper:{ title:"Dia 4 — Upper", sub:"Empurrar #2 + braços + 1 remada",
+    warm:[["Band Pull-Apart","2×15"],["Shoulder Dislocates (bastão/banda)","2×10"],["Wall Slides","2×10"]], ex:[
     {n:"Supino com Haltere", sets:4, reps:"10", w:"25kg/mão", rpe:"7"},
     {n:"Desenvolvimento com Haltere", sets:3, reps:"12", w:"~10–12kg", rpe:"7"},
     {n:"Crucifixo com Haltere", sets:3, reps:"12", w:"12,5kg", rpe:"7"},
@@ -152,7 +156,8 @@ const PROGRAM = {
     {n:"Rosca Martelo", sets:3, reps:"12", w:"~10–12kg", rpe:"7"},
     {n:"Prancha Lateral — core", sets:3, reps:"30–45s/lado", w:"corporal", rpe:"—"},
   ]},
-  lower:{ title:"Dia 5 — Lower + Core", sub:"Cadeia posterior + core pesado", ex:[
+  lower:{ title:"Dia 5 — Lower + Core", sub:"Cadeia posterior + core pesado",
+    warm:[["Squat Opener","60s"],["Knight Stretch","60s/lado"],["Borboleta","60s"],["Pigeon Stretch","60s/lado"],["Forearm Stretch","60s"],["Cobra to Prayer","60s"],["Leg Swings","2×10/perna"],["Agachamento Livre","2×12"]], ex:[
     {n:"Stiff Leg Deadlift", sets:3, reps:"10", w:"a calibrar", rpe:"7"},
     {n:"Leg Curl (sentado)", sets:3, reps:"12", w:"a calibrar", rpe:"7"},
     {n:"Leg Press", sets:3, reps:"12", w:"a calibrar", rpe:"7"},
@@ -253,6 +258,12 @@ function renderLogger(dayKey){
   let h = `<button class="back" id="bk">‹ Voltar</button>
     <h2 style="margin-top:4px">${d.title}</h2>
     <div class="note" style="margin:-4px 2px 14px">${d.sub}${last?` · último em ${fmtDate(last.date)}`:""}</div>`;
+  if(d.warm && d.warm.length){
+    h += `<div class="card warm" style="border-color:#3a4a1f;background:#1b1f14">
+      <div class="name" style="font-weight:600;margin-bottom:10px">🔥 Aquecimento & mobilidade</div><ul>`;
+    d.warm.forEach(([n,t])=>h+=`<li>${n}<span>${t}</span></li>`);
+    h += `</ul></div>`;
+  }
   d.ex.forEach((e,ei)=>{
     const prev = lastMap[e.n];
     h += `<div class="card ex" data-ex="${ei}">
