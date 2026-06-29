@@ -1,4 +1,4 @@
-const CACHE = "lucas-pt-v3";
+const CACHE = "lucas-pt-v4";
 const ASSETS = [
   "./",
   "./index.html",
@@ -19,9 +19,27 @@ self.addEventListener("activate", (e) => {
   );
 });
 
-// Cache-first for app shell; network falls back to cache (offline-friendly).
+// Network-first for HTML (so updates show immediately when online),
+// cache-first for static assets (icons/manifest) — offline-friendly.
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
+  const isHTML =
+    e.request.mode === "navigate" ||
+    (e.request.headers.get("accept") || "").includes("text/html");
+
+  if (isHTML) {
+    e.respondWith(
+      fetch(e.request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
+          return res;
+        })
+        .catch(() => caches.match(e.request).then((r) => r || caches.match("./index.html")))
+    );
+    return;
+  }
+
   e.respondWith(
     caches.match(e.request).then((cached) =>
       cached ||
