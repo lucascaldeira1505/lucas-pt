@@ -78,6 +78,76 @@ td:first-child,th:first-child{text-align:left}
 .del{background:none;border:none;color:var(--bad);font-size:15px;padding:2px 6px}
 .formgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 .formgrid label{font-size:11px;color:var(--dim);display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.3px}
+/* ===== dieta / receitas ===== */
+.chkrow{display:flex;gap:11px;align-items:flex-start;padding:10px 2px;border-bottom:1px solid var(--line)}
+.chkrow:last-child{border-bottom:none}
+.chkbox{flex:0 0 auto;width:22px;height:22px;border-radius:6px;border:2px solid var(--line);
+  background:var(--card2);display:flex;align-items:center;justify-content:center;
+  color:#08130c;font-size:13px;font-weight:800;transition:.15s;margin-top:1px}
+.chkrow.done .chkbox{background:var(--acc);border-color:var(--acc)}
+.chktxt{flex:1;font-size:13.5px;line-height:1.45}
+.chkrow.done .chktxt{color:var(--dim);text-decoration:line-through}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 4px}
+.kpi{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:8px 6px;text-align:center}
+.kpi b{display:block;font-size:16px}
+.kpi span{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.3px}
+.dcount{display:flex;align-items:center;gap:10px;background:#1e3a5f22;border:1px solid #1e3a5f;
+  border-radius:10px;padding:9px 12px;margin-top:10px;font-size:13px}
+.dcount b{font-size:20px;color:var(--blue)}
+.seg{display:flex;gap:6px;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:12px}
+.seg button{flex:1;background:none;border:none;color:var(--dim);font-size:13px;font-weight:600;padding:9px 6px;border-radius:9px}
+.seg button.on{background:var(--acc);color:#08130c}
+.slot{background:var(--card2);border:1px solid var(--line);border-radius:12px;margin-bottom:9px;overflow:hidden}
+.slot.hi{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc-dim)}
+.slothead{display:flex;align-items:center;gap:10px;padding:11px 13px}
+.slothead .h{font-size:11px;color:var(--acc);font-weight:700;min-width:66px;text-transform:uppercase;letter-spacing:.3px}
+.slothead .n{flex:1;font-size:14px;font-weight:600;line-height:1.25}
+.slothead .m{font-size:11px;color:var(--dim);text-align:right;white-space:nowrap}
+.slothead .m b{display:block;color:var(--txt);font-size:13px}
+.slotbody{border-top:1px solid var(--line);padding:4px 13px 11px;display:none}
+.slot.open .slotbody{display:block}
+.slot.open .chev{transform:rotate(0)}
+.chev{transition:transform .2s;font-size:11px;color:var(--dim);transform:rotate(-90deg)}
+.opt{border-bottom:1px solid var(--line);padding:9px 0}
+.opt:last-child{border-bottom:none}
+.opt .on1{font-size:13px;font-weight:600}
+.oi{font-size:12px;color:var(--dim);margin-top:2px;line-height:1.45}
+.opt .om{font-size:11px;color:var(--acc);margin-top:3px;font-weight:600}
+.tmin{background:#1e3a5f;color:var(--blue);border-radius:8px;padding:1px 6px;font-size:10px;font-weight:700;margin-left:5px}
+.star{color:var(--warn);font-size:11px;font-weight:700;margin-left:5px;white-space:nowrap}
+.alerta{background:#4a3a1022;border-left:3px solid var(--warn);border-radius:0 8px 8px 0;
+  padding:9px 11px;margin-top:9px;font-size:12px;color:#e8d5a8;line-height:1.5}
+.crit{background:#4a1e1e22;border-left:3px solid var(--bad);border-radius:0 8px 8px 0;
+  padding:9px 11px;margin:9px 0;font-size:12px;color:#f0c0c0;line-height:1.5}
+.cota{display:flex;gap:5px;margin:8px 0 4px}
+.cota i{flex:1;height:26px;border-radius:7px;background:var(--card2);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-style:normal;color:var(--dim)}
+.cota i.used{background:#db277733;border-color:#db2777;color:#f0a8cc;font-weight:700}
+.acc .acch{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px}
+.acc .accb{display:none;margin-top:10px;line-height:1.6}
+.acc.open .accb{display:block}
+.acc.open .chev{transform:rotate(0)}
+.wk{display:flex;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px;align-items:baseline}
+.wk:last-child{border-bottom:none}
+.wk .d{font-weight:700;min-width:58px}
+.wk .c{flex:1;color:var(--dim)}
+.wk .k{color:var(--acc);white-space:nowrap;font-weight:600}
+.chips{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;background:var(--card2);border:1px solid var(--line);color:var(--dim);
+  border-radius:20px;padding:7px 13px;font-size:13px;font-weight:600;white-space:nowrap}
+.chip.on{background:var(--acc);color:#08130c;border-color:var(--acc)}
+.rec{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:9px}
+.rec .rh{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.rec .rn{font-size:14px;font-weight:700;flex:1}
+.rec .rm{font-size:12px;color:var(--acc);font-weight:700;white-space:nowrap}
+.rec .rp{font-size:11px;color:var(--dim);letter-spacing:.2px}
+.rec ul{margin:7px 0 0 16px;font-size:12px;color:var(--dim);line-height:1.55}
+.badge{background:var(--acc-dim);color:var(--acc);border-radius:9px;padding:1px 7px;font-size:9px;
+  font-weight:800;text-transform:uppercase;letter-spacing:.4px}
+.badge.g{background:#1e3a5f;color:var(--blue)}
+.badge.p{background:#7c3aed33;color:#c4a6ff}
+.flabel{font-size:11px;color:var(--dim);display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.3px}
 /* modal */
 #modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-end;z-index:20}
 #modal .sheet{background:var(--card);border-radius:18px 18px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));width:100%}
@@ -109,10 +179,21 @@ td:first-child,th:first-child{text-align:left}
   <button class="btn" onclick="saveWorkout()">✅ Salvar treino</button>
 </section>
 
+<!-- ============ DIETA ============ -->
+<section id="tab-dieta" class="tab">
+  <div id="dieta-conteudo"><p class="muted">Carregando…</p></div>
+</section>
+
+<!-- ============ RECEITAS ============ -->
+<section id="tab-receitas" class="tab">
+  <div id="receitas-conteudo"><p class="muted">Carregando…</p></div>
+</section>
+
 <!-- ============ METAS ============ -->
 <section id="tab-metas" class="tab">
   <div class="card">
     <h2>🎯 Metas até 31/12/2026</h2>
+    <div id="stopalert"></div>
     <div class="goalgrid" id="goalcards"></div>
     <p class="muted small" style="margin-top:10px">Trilho recalibrado em 25/07 · 30/09 no trilho: ≈ <b>21,2%</b> · Meta 31/12: ≤ <b>18,0%</b> · Massa magra: nunca abaixo de <b>62 kg</b> · Visceral ≤ 6. Peso é consequência, não alvo.</p>
   </div>
@@ -218,9 +299,11 @@ td:first-child,th:first-child{text-align:left}
 
 <nav>
   <button class="on" data-t="treino" onclick="go('treino',this)"><span class="ico">🏋️</span>Treino</button>
+  <button data-t="dieta" onclick="go('dieta',this)"><span class="ico">🍽</span>Dieta</button>
+  <button data-t="receitas" onclick="go('receitas',this)"><span class="ico">🍦</span>Receitas</button>
   <button data-t="metas" onclick="go('metas',this)"><span class="ico">🎯</span>Metas</button>
   <button data-t="cardio" onclick="go('cardio',this)"><span class="ico">🏃</span>Cardio</button>
-  <button data-t="hist" onclick="go('hist',this)"><span class="ico">📊</span>Histórico</button>
+  <button data-t="hist" onclick="go('hist',this)"><span class="ico">📊</span>Log</button>
 </nav>
 
 <script>
@@ -336,7 +419,76 @@ const store = {
   // variante escolhida por exercício-base: {"Supino no Smith":"Supino com Barra"}
   get variant(){ try{return JSON.parse(localStorage.getItem("lpt2_variant")||"{}")}catch(e){return {}} },
   set variant(v){ localStorage.setItem("lpt2_variant",JSON.stringify(v)) },
+  // checklist da dieta por dia: {"2026-07-27":{chk:{proteina:true},esc:true}}
+  get diet(){ try{return JSON.parse(localStorage.getItem("lpt2_diet")||"{}")}catch(e){return {}} },
+  set diet(v){ localStorage.setItem("lpt2_diet",JSON.stringify(v)) },
+  // datas em que usou sobremesa cremosa (cota de 3/semana): ["2026-07-27",…]
+  get cremosos(){ try{return JSON.parse(localStorage.getItem("lpt2_cremosos")||"[]")}catch(e){return []} },
+  set cremosos(v){ localStorage.setItem("lpt2_cremosos",JSON.stringify(v)) },
 };
+
+/* ================= DADOS DA DIETA (data/*.json) =================
+   Ficam em arquivo separado de propósito: quando o bloco muda (24/08 →
+   2.300 kcal), é só trocar o JSON e subir o CACHE do sw.js — sem tocar em código. */
+const DATA = {dieta:null, receitas:null};
+let carregando = null;
+async function carregaDados(){
+  if(DATA.dieta && DATA.receitas) return true;
+  if(carregando) return carregando;
+  carregando = (async ()=>{
+    try{
+      const [d,r] = await Promise.all([
+        fetch("data/dieta.json").then(x=>{ if(!x.ok) throw new Error(x.status); return x.json() }),
+        fetch("data/receitas.json").then(x=>{ if(!x.ok) throw new Error(x.status); return x.json() }),
+      ]);
+      DATA.dieta = d; DATA.receitas = r;
+      return true;
+    }catch(e){ carregando = null; return false; }
+  })();
+  return carregando;
+}
+function erroDados(el){
+  document.getElementById(el).innerHTML =
+    `<div class="card"><h2>😕 Não consegui carregar os dados</h2>
+     <p class="muted small">Abra o app uma vez com internet pra baixar o plano — depois funciona offline.</p>
+     <button class="btn sec" onclick="location.reload()">Tentar de novo</button></div>`;
+}
+
+/* ---- datas ---- */
+function diaDieta(){ return dietDia || localDate() }
+let dietDia = null;
+function estadoDia(){
+  const all = store.diet, d = diaDieta();
+  if(all[d]) return all[d];
+  // padrão do dia da semana: seg/ter/qua/sex têm escalada de manhã (semana tipo)
+  const wd = new Date(d+"T12:00:00").getDay();
+  return {chk:{}, esc:[1,2,3,5].includes(wd)};
+}
+function salvaDia(mut){
+  const all = store.diet, d = diaDieta(), cur = JSON.parse(JSON.stringify(estadoDia()));
+  mut(cur); all[d] = cur; store.diet = all; renderDieta();
+}
+function segundaDa(dStr){          // segunda-feira da semana de dStr (ISO, seg→dom)
+  const dt = new Date(dStr+"T12:00:00");
+  const off = (dt.getDay()+6)%7;
+  dt.setDate(dt.getDate()-off);
+  return dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0");
+}
+function cremososDaSemana(){
+  const seg = segundaDa(diaDieta());
+  const fim = new Date(seg+"T12:00:00"); fim.setDate(fim.getDate()+7);
+  const fimStr = fim.toISOString().slice(0,10);
+  return store.cremosos.filter(d => d>=seg && d<fimStr);
+}
+function toggleCremoso(){
+  const d = diaDieta(), atual = store.cremosos;
+  store.cremosos = atual.includes(d) ? atual.filter(x=>x!==d) : atual.concat([d]);
+  renderDieta();
+}
+function diasAte(dataStr){
+  const alvo = new Date(dataStr+"T12:00:00"), hoje = new Date(localDate()+"T12:00:00");
+  return Math.round((alvo-hoje)/864e5);
+}
 
 /* ---- variantes de exercício (barra vs Smith vs máquina) ----
    As cargas NÃO são comparáveis entre variantes, então cada uma tem seu
@@ -366,6 +518,12 @@ function go(t,btn){
   btn.classList.add("on");
   if(t==="metas") renderMetas();
   if(t==="hist") renderHist();
+  if(t==="dieta"||t==="receitas"){
+    carregaDados().then(ok=>{
+      if(!ok) return erroDados(t==="dieta"?"dieta-conteudo":"receitas-conteudo");
+      t==="dieta" ? renderDieta() : renderReceitas();
+    });
+  }
   window.scrollTo(0,0);
 }
 function openMenu(){ document.getElementById("modal").style.display="flex" }
@@ -479,7 +637,264 @@ function beep(){
   }catch(e){}
 }
 
+/* ================= DIETA =================
+   Princípio de UI (do handoff): CHECKLIST + REFERÊNCIA, nunca food logger.
+   Sem input de alimento, sem soma de kcal do dia. Os números são consulta. */
+function esc(s){ return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;") }
+function toggleSlot(el){ el.closest(".slot").classList.toggle("open") }
+
+function renderDieta(){
+  const D = DATA.dieta, b = D.bloco, st = estadoDia(), hoje = diaDieta();
+  const modo = st.esc ? D.refeicoes_dia_escalada_manha : D.refeicoes_dia_sem_escalada;
+  const dias = diasAte(b.saida_obrigatoria.data);
+  const cre = cremososDaSemana(), usouHoje = store.cremosos.includes(hoje);
+
+  /* --- 1. bloco --- */
+  let h = `<div class="card">
+    <h2>🍽 ${esc(b.nome)}</h2>
+    <div class="muted small">${esc(b.inicio.split("-").reverse().join("/"))} → ${esc(b.fim.split("-").reverse().join("/"))}
+      · déficit ${b.deficit_dia} kcal/dia (${b.deficit_pct}%) · ~${String(b.gordura_semana_kg).replace(".",",")} kg de gordura/semana</div>
+    <div class="kpis">
+      <div class="kpi"><b>${b.kcal_alvo.toLocaleString("pt-BR")}</b><span>kcal</span></div>
+      <div class="kpi"><b>${b.prot_alvo} g</b><span>proteína</span></div>
+      <div class="kpi"><b>${b.gord_alvo} g</b><span>gordura</span></div>
+      <div class="kpi"><b>${String(b.agua_alvo_l).replace(".",",")} L</b><span>água</span></div>
+    </div>
+    <p class="muted small" style="margin-top:8px">${esc(b.proposito)}</p>
+    <div class="dcount"><b>${dias>0?dias:0}</b>
+      <div>${dias>0 ? `dias até <b style="font-size:13px">24/08</b> — saída obrigatória pra ${b.saida_obrigatoria.kcal.toLocaleString("pt-BR")} kcal`
+                    : `<b style="font-size:13px">Revisão vencida:</b> subir pra ${b.saida_obrigatoria.kcal.toLocaleString("pt-BR")} kcal`}</div></div>
+  </div>`;
+
+  /* --- 2. dia + modo --- */
+  h += `<div class="card">
+    <label class="flabel">Dia</label>
+    <input type="date" value="${hoje}" onchange="dietDia=this.value;renderDieta()">
+    <div class="seg" style="margin-top:10px">
+      <button class="${st.esc?"on":""}" onclick="salvaDia(c=>c.esc=true)">🧗 Escalada de manhã</button>
+      <button class="${st.esc?"":"on"}" onclick="salvaDia(c=>c.esc=false)">Sem escalada</button>
+    </div>
+    <div class="muted small">${esc(modo.rotulo)} · <b>${modo.total_kcal.toLocaleString("pt-BR")} kcal · ${modo.total_prot} g de proteína</b></div>
+  </div>`;
+
+  /* --- 3. checklist do dia --- */
+  const itens = D.checklist_diario.filter(i => !i.condicional || st.esc);
+  const feitos = itens.filter(i=>st.chk[i.id]).length;
+  h += `<div class="card"><h2>✅ Checklist de hoje <span class="muted small">${feitos}/${itens.length}</span></h2>
+    <div class="bar" style="margin-bottom:10px"><i style="width:${itens.length?feitos/itens.length*100:0}%"></i></div>
+    ${itens.map(i=>`<div class="chkrow ${st.chk[i.id]?"done":""}" onclick="salvaDia(c=>c.chk['${i.id}']=!c.chk['${i.id}'])">
+      <div class="chkbox">${st.chk[i.id]?"✓":""}</div>
+      <div class="chktxt">${esc(i.label)}
+        ${i.critico?`<span class="badge" style="background:#4a1e1e;color:var(--bad)">crítico</span>`:""}
+        ${i.noturno?`<span class="badge g">🌙 noite</span>`:""}</div>
+    </div>`).join("")}</div>`;
+
+  /* --- 4. refeições do dia --- */
+  h += `<div class="card"><h2>🍴 Refeições de hoje</h2>` +
+    modo.slots.map(s=>{
+      const semPao = st.esc && /sem p/i.test(s.nome);   // café pós-escalada usa os números sem pão
+      const macro = s.kcal!=null
+        ? `<b>${s.kcal} kcal</b>${s.prot?`${s.prot} g P`:""}`
+        : `<b>${s.kcal_min}–${s.kcal_max}</b>kcal`;
+      let corpo = "";
+      if(s.receita_id){
+        const sh = D_shake(s.receita_id);
+        corpo = sh ? `<div class="opt"><div class="on1">${esc(sh.nome)}</div>
+          <div class="oi">${sh.ingredientes.map(esc).join(" · ")}</div>
+          ${sh.preparo?`<div class="oi"><b>Preparo:</b> ${esc(sh.preparo)}</div>`:""}
+          <div class="om">${sh.kcal} kcal · ${sh.prot} g P</div></div>` : "";
+      } else if(s.opcoes_ref === "sobremesas"){
+        corpo = `<div class="opt"><div class="oi">${esc(D.sobremesas.regra)}</div>
+          <div class="om" style="color:var(--warn)">Cota de cremoso desta semana: ${cre.length}/3</div>
+          <div class="oi" style="margin-top:6px">Receitas nas categorias 🍨 Cremoso e 🍧 Sorbet da aba <b>Receitas</b>.</div></div>`;
+      } else if(s.opcoes_ref && Array.isArray(D[s.opcoes_ref])){
+        corpo = D[s.opcoes_ref].map(o=>{
+          const k = semPao && o.kcal_sem_pao!=null ? o.kcal_sem_pao : o.kcal;
+          const p = semPao && o.prot_sem_pao!=null ? o.prot_sem_pao : o.prot;
+          return `<div class="opt">
+            <div class="on1">${esc(o.nome)}
+              ${o.tempo_min!=null?`<span class="tmin">${o.tempo_min} min</span>`:""}
+              ${o.destaque?`<span class="star">★ escape</span>`:""}</div>
+            <div class="oi">${o.itens.map(esc).join(" · ")}</div>
+            <div class="om">${k} kcal · ${String(p).replace(".",",")} g P${o.fibra?` · ${o.fibra} g fibra`:""}${semPao&&o.kcal_sem_pao!=null?" (sem pão)":""}</div>
+            ${o.tag?`<div class="oi" style="font-style:italic">${esc(o.tag)}</div>`:""}
+            ${o.nota?`<div class="oi">⚠️ ${esc(o.nota)}</div>`:""}</div>`;
+        }).join("");
+      }
+      return `<div class="slot ${s.destaque?"hi":""}">
+        <div class="slothead" onclick="toggleSlot(this)">
+          <div class="h">${esc(s.hora)}</div>
+          <div class="n">${esc(s.nome)}${s.destaque?`<span class="star">★ slot chave</span>`:""}</div>
+          <div class="m">${macro}</div><span class="chev">▾</span>
+        </div>
+        <div class="slotbody">${corpo}</div>
+      </div>`;
+    }).join("") +
+    `<p class="muted small" style="margin-top:6px">Toque na refeição pra ver as opções. Os números são <b>referência</b> — as porções já estão calibradas, não há nada pra somar.</p></div>`;
+
+  /* --- 5. salada de frutas --- */
+  const fx = D.item_fixo_diario;
+  h += `<div class="card"><h2>🍍 ${esc(fx.nome)} <span class="badge g">todo dia · ${esc(fx.slot)}</span></h2>
+    <table><tr><th>Fruta</th><th>Porção</th><th>Âncora</th><th>kcal</th></tr>
+    ${fx.frutas.map(f=>`<tr${f.alerta?' style="color:var(--warn)"':''}>
+      <td>${esc(f.nome)}</td><td>${f.g} g</td><td><b>${esc(f.ancora)}</b></td><td>${f.kcal}</td></tr>`).join("")}
+    <tr><td><b>Total</b></td><td><b>${fx.total_g} g</b></td><td>1 tigela pequena</td><td><b>${fx.total_kcal}</b></td></tr></table>
+    <div class="alerta">⚠️ ${esc(fx.alerta)}</div>
+    <p class="muted small" style="margin-top:8px">${esc(fx.porque_aqui)}</p></div>`;
+
+  /* --- 6. sobremesa e cota --- */
+  h += `<div class="card"><h2>🍨 Sobremesa — cota da semana</h2>
+    <p class="muted small">${esc(D.sobremesas.regra)}</p>
+    <div class="cota">${[0,1,2].map(i=>`<i class="${i<cre.length?"used":""}">${i<cre.length?"cremoso":"livre"}</i>`).join("")}</div>
+    <div class="muted small">${cre.length}/3 cremosos usados nesta semana (reseta na segunda)${cre.length?" · "+cre.map(d=>d.split("-").reverse().slice(0,2).join("/")).join(", "):""}</div>
+    <button class="btn ${usouHoje?"":"sec"}" onclick="toggleCremoso()">
+      ${usouHoje ? "✓ Cremoso marcado hoje — desmarcar" : (cre.length>=3 ? "⚠️ Cota cheia — marcar cremoso hoje mesmo assim" : "Marcar cremoso hoje")}</button>
+    <p class="muted small" style="margin-top:8px">${esc(D.sobremesas.justificativa)}</p></div>`;
+
+  /* --- 7. semana tipo --- */
+  h += `<div class="card acc" onclick="this.classList.toggle('open')">
+    <div class="acch"><b>🗓 Semana tipo</b><span class="chev">▾</span></div>
+    <div class="accb">${D.semana_tipo.map(d=>`<div class="wk">
+      <span class="d">${esc(d.dia)}</span>
+      <span class="c">${esc(d.contexto)}${d.delivery?" 🍕":""}${d.nota?`<br><i>${esc(d.nota)}</i>`:""}</span>
+      <span class="k">${d.kcal.toLocaleString("pt-BR")} kcal<br>${d.prot} g P</span></div>`).join("")}
+      <p class="muted small" style="margin-top:8px">Média da semana: <b>${D.semana_fechamento.kcal_media_com_sobremesa.toLocaleString("pt-BR")} kcal · ${D.semana_fechamento.prot_media} g P · ${D.semana_fechamento.gord_media} g gordura</b>.<br>${esc(D.semana_fechamento.nota)}</p>
+    </div></div>`;
+
+  /* --- 8. referência --- */
+  h += D_ref(D).map(r=>`<div class="card acc" onclick="this.classList.toggle('open')">
+      <div class="acch"><b>${r.t}</b><span class="chev">▾</span></div>
+      <div class="accb muted small">${r.c}</div></div>`).join("");
+
+  document.getElementById("dieta-conteudo").innerHTML = h;
+}
+
+function D_shake(id){ return (DATA.receitas?.shakes||[]).find(s=>s.id===id) || null }
+
+/* blocos de referência (colapsados) montados a partir do JSON */
+function D_ref(D){
+  const li = a => a.map(x=>`• ${esc(x)}`).join("<br>");
+  const sub = D.substituicoes;
+  return [
+    {t:"🔁 Substituições 1:1", c:`
+      <b>Proteína</b> — ${esc(sub.proteina.ancora)}<br>${li(sub.proteina.equivalentes)}<br><br>
+      <b>Carboidrato</b> — ${esc(sub.carboidrato.ancora)}<br>${li(sub.carboidrato.equivalentes)}<br>
+      <i>Almoço:</i> ${esc(sub.carboidrato.restricao_almoco)}<br><i>Jantar:</i> ${esc(sub.carboidrato.restricao_jantar)}<br><br>
+      <b>Gordura</b> — ${esc(sub.gordura.ancora)}<br>${li(sub.gordura.equivalentes)}<br><br>
+      <b>Emergência:</b> ${esc(sub.emergencia)}<br>
+      <span style="color:var(--warn)">⚠️ ${esc(sub.teto_whey)}</span>`},
+    {t:"📋 Regras por refeição", c:`
+      <b>Café</b> — ${esc(D.regra_cafe.combinacao_fixa)}<br>
+      <span style="color:var(--warn)">⚠️ Sódio: ${esc(D.regra_cafe.alerta_sodio)}</span><br><br>
+      <b>Almoço</b> — ${esc(D.regra_almoco.base)}<br>${esc(D.regra_almoco.template)}<br>
+      Macarrão: ${esc(D.regra_almoco.macarrao)}<br>Complementares: ${esc(D.regra_almoco.complementares)}<br>
+      Feijão: ${esc(D.regra_almoco.excecao_feijao)}<br><br>
+      <b>Pré-treino</b> — ${esc(D.regra_pretreino.porque_e_o_slot_mais_importante)}<br>
+      Pasta de amendoim: ${esc(D.regra_pretreino.pasta_de_amendoim)}<br>
+      <span style="color:var(--bad)">🚫 ${esc(D.regra_pretreino.proibicao)}</span><br><br>
+      <b>Jantar</b> — teto de <b>${D.regra_jantar.teto_tempo_min} min</b>. ${esc(D.regra_jantar.porque)}<br>
+      Proteína: ${esc(D.regra_jantar.proteina)}<br>Fora: ${esc(D.regra_jantar.eliminados)}<br>
+      Carbos rápidos: ${D.regra_jantar.carbos_rapidos.map(c=>`${esc(c.nome)} (${esc(c.tempo)})${c.destaque?" ★":""}`).join(" · ")}`},
+    {t:"🧗 Escalada de manhã — o shake", c:`
+      ${esc(D.escalada.manha.regra)}<br><br>
+      <b>Shake:</b> ${D.escalada.manha.shake.ingredientes.map(esc).join(" · ")} — ${D.escalada.manha.shake.kcal} kcal · ${D.escalada.manha.shake.prot} g P<br><br>
+      ${D.escalada.manha.planos.map(p=>`<b>Plano ${esc(p.id)}</b> — ${esc(p.como)}<br><i>${esc(p.quando)}</i>`).join("<br><br>")}<br><br>
+      ${esc(D.escalada.manha.nota)}<br><br>
+      <b>Escalada à noite (${esc(D.escalada.noite.horario)})</b> — ${esc(D.escalada.noite.regra)}<br><br>
+      <b>Regra geral:</b> ${esc(D.escalada.regra_geral)}`},
+    {t:"🍕 Dia de delivery", c:`
+      ${esc(D.delivery.frequencia)} · custo atual +${D.delivery.custo_atual} kcal → meta +${D.delivery.custo_meta}<br><br>
+      ${D.delivery.protocolo.map((p,i)=>`<b>${i+1}.</b> ${esc(p)}`).join("<br>")}`},
+    {t:"🆘 Dia impossível — o piso", c:
+      D.dia_impossivel.map(x=>`<b>${x.n}. ${esc(x.regra)}</b><br>${esc(x.detalhe)}`).join("<br><br>")},
+    {t:"🛑 Stop rules", c:
+      D.stop_rules.map(s=>`<b>${s.severidade==="critica"?"🔴":"🟡"} ${esc(s.gatilho)}</b><br>
+        → <b style="color:var(--acc)">${esc(s.acao)}</b><br><i>${esc(s.porque)}</i>`).join("<br><br>")},
+    {t:"🌾 Fibra — alvo "+D.fibra.alvo+" g", c:`
+      ${esc(D.fibra.porque)}<br><br>
+      ${D.fibra.fontes.map(f=>`• ${esc(f.nome)} — ${esc(f.porcao)}: <b>${f.fibra} g</b>`).join("<br>")}`},
+    {t:"💊 Suplementos", c:
+      D.suplementos.map(s=>{
+        const ic = {ok:"✅",neutro:"➖",opcional:"🔹",recusado:"🚫"}[s.status]||"";
+        return `<b>${ic} ${esc(s.nome)}</b>${s.dose?` — ${esc(s.dose)}`:""}<br><i>${esc(s.nota)}</i>`;
+      }).join("<br><br>")},
+    {t:"🛒 Compras da semana", c:
+      Object.entries(D.compras_semanais).map(([k,v])=>
+        `<b>${esc(k.replace(/_/g," "))}</b><br>${li(v)}`).join("<br><br>")},
+  ];
+}
+
+/* ================= RECEITAS ================= */
+let recFiltro = "todas";
+function setRecFiltro(id){ recFiltro = id; renderReceitas() }
+
+function renderReceitas(){
+  const R = DATA.receitas;
+  const cats = R.categorias;
+  const lista = recFiltro==="todas" ? R.receitas : R.receitas.filter(x=>x.categoria===recFiltro);
+  const cat = id => cats.find(c=>c.id===id);
+
+  let h = `<div class="card">
+    <h2>🍦 Receitas <span class="muted small">${R.receitas.length} + ${R.shakes.length} shakes</span></h2>
+    <div class="crit"><b>Todas rendem 3 porções.</b> Todos os números abaixo são <b>POR PORÇÃO</b> — nunca o pote inteiro.</div>
+    <div class="alerta">⚠️ Só a categoria <b>🍦 Proteico</b> pode ocupar o slot das <b>17:30</b> — aquele horário exige 32 g de proteína.
+      Cremoso e sorbet são <b>pós-jantar</b>. Sorbet no pré-treino resolve a caloria e não resolve a massa magra.</div>
+  </div>`;
+
+  h += `<div class="chips">
+    <button class="chip ${recFiltro==="todas"?"on":""}" onclick="setRecFiltro('todas')">Todas (${R.receitas.length})</button>
+    ${cats.map(c=>`<button class="chip ${recFiltro===c.id?"on":""}" onclick="setRecFiltro('${c.id}')">
+      ${c.emoji} ${esc(c.nome)} (${R.receitas.filter(x=>x.categoria===c.id).length})</button>`).join("")}
+  </div>`;
+
+  if(recFiltro!=="todas"){
+    const c = cat(recFiltro);
+    h += `<div class="card"><h2>${c.emoji} ${esc(c.nome)}</h2>
+      <p class="muted small">${esc(c.composicao)}<br>
+      <b>Slot:</b> ${esc(c.slot)} · <b>Frequência:</b> ${esc(c.frequencia)}<br>
+      <b>Função:</b> ${esc(c.funcao)}<br>
+      ${c.faixa_kcal[0]}–${c.faixa_kcal[1]} kcal · ${String(c.faixa_prot[0]).replace(".",",")}–${String(c.faixa_prot[1]).replace(".",",")} g P por porção</p>
+      <div class="${recFiltro==="proteico"?"alerta":"crit"}">${esc(c.regra)}</div></div>`;
+  }
+
+  h += lista.map(x=>{
+    const c = cat(x.categoria);
+    return `<div class="rec">
+      <div class="rh">
+        <span class="rn">${c.emoji} ${esc(x.nome)}</span>
+        <span class="rm">${x.kcal_porcao} kcal<br>${String(x.prot_porcao).replace(".",",")} g P</span>
+      </div>
+      <div class="rp">por porção${x.fibra_porcao?` · ${x.fibra_porcao} g fibra`:""}
+        ${recFiltro==="todas"?` · ${esc(c.nome)}`:""}</div>
+      <div style="margin-top:5px">
+        ${x.do_lucas?`<span class="badge">receita do Lucas</span> `:""}
+        ${x.base==="banana"?`<span class="badge p">base banana</span>`:""}</div>
+      <ul>${x.ingredientes.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>
+      ${x.nota?`<div class="oi" style="margin-top:7px">⚠️ ${esc(x.nota)}</div>`:""}
+    </div>`;
+  }).join("");
+
+  h += `<div class="card"><h2>🥛 Shakes <span class="muted small">porção única (não rendem 3)</span></h2>
+    ${R.shakes.map(s=>`<div class="rec" ${s.destaque?'style="border-color:var(--acc)"':""}>
+      <div class="rh"><span class="rn">${esc(s.nome)}${s.destaque?`<span class="star">★ na véspera</span>`:""}</span>
+        <span class="rm">${s.kcal} kcal<br>${s.prot} g P</span></div>
+      <div class="rp">por shake · ${esc(s.quando)}</div>
+      <ul>${s.ingredientes.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>
+      ${s.preparo?`<div class="oi" style="margin-top:7px">🌙 <b>Preparo:</b> ${esc(s.preparo)}</div>`:""}
+    </div>`).join("")}</div>`;
+
+  h += `<div class="card acc" onclick="this.classList.toggle('open')">
+      <div class="acch"><b>🔧 Técnica do Creami</b><span class="chev">▾</span></div>
+      <div class="accb muted small">${R.tecnica.map(t=>`• ${esc(t)}`).join("<br><br>")}</div></div>
+    <div class="card acc" onclick="this.classList.toggle('open')">
+      <div class="acch"><b>📌 Regras globais</b><span class="chev">▾</span></div>
+      <div class="accb muted small">${R.regras_globais.map(t=>`• ${esc(t)}`).join("<br><br>")}</div></div>`;
+
+  document.getElementById("receitas-conteudo").innerHTML = h;
+}
+
 /* ================= METAS / BIOIMPEDÂNCIA ================= */
+function n1(x){ return Number(x).toFixed(1).replace(".",",") }   // decimal pt-BR
 function fmtDate(d){ const p=d.split("-"); return p[2]+"/"+p[1] }
 function sortedBody(){ return store.body.slice().sort((a,b)=>a.d.localeCompare(b.d)) }
 
@@ -513,21 +928,31 @@ function renderMetas(){
     const toSep = Math.max(0,last.bf-GOALS.bfSep), toDez = Math.max(0,last.bf-GOALS.bfDez);
     const start = data[0].bf;
     const pctDez = start>GOALS.bfDez ? Math.min(100,Math.max(0,(start-last.bf)/(start-GOALS.bfDez)*100)) : 100;
-    cards += goalCard("Gordura atual", last.bf.toFixed(1)+"%",
-      `faltam ${toSep.toFixed(1)} pp p/ set · ${toDez.toFixed(1)} pp p/ dez`, pctDez, false);
+    cards += goalCard("Gordura atual", n1(last.bf)+"%",
+      `faltam ${n1(toSep)} pp p/ set · ${n1(toDez)} pp p/ dez`, pctDez, false);
     if(last.magra!=null){
       const ok = last.magra>=GOALS.leanFloor;
       const twoLow = !ok && prev && prev.magra!=null && prev.magra<GOALS.leanFloor;
-      cards += goalCard("Massa magra", last.magra.toFixed(1)+" kg",
+      cards += goalCard("Massa magra", n1(last.magra)+" kg",
         twoLow ? "⚠️ 2 medições < 62 kg — reduzir déficit!" : (ok?"acima do piso de 62 kg ✓":"⚠️ abaixo do piso de 62 kg"),
         Math.min(100,last.magra/GOALS.leanFloor*100), !ok);
     }
     if(last.visc!=null) cards += goalCard("Visceral", last.visc, last.visc<=GOALS.viscMax?"na meta (≤6) ✓":"acima da meta (≤6)", last.visc<=GOALS.viscMax?100:60, last.visc>GOALS.viscMax);
-    cards += goalCard("Peso", last.peso.toFixed(1)+" kg", "consequência, não alvo", null, false);
+    cards += goalCard("Peso", n1(last.peso)+" kg", "consequência, não alvo", null, false);
   } else {
     cards = `<p class="muted" style="grid-column:1/-1">Nenhuma medição ainda. Registre a primeira abaixo ou importe o backup com o histórico (menu ⋯).</p>`;
   }
   document.getElementById("goalcards").innerHTML = cards;
+
+  /* stop rule crítica: massa magra < 62 kg em 2 medições seguidas → +300 kcal já */
+  const magraBaixa = last && prev && last.magra!=null && prev.magra!=null
+                     && last.magra < GOALS.leanFloor && prev.magra < GOALS.leanFloor;
+  document.getElementById("stopalert").innerHTML = magraBaixa
+    ? `<div class="crit"><b>🛑 STOP RULE DISPARADA</b><br>
+       Massa magra abaixo de ${n1(GOALS.leanFloor)} kg em 2 medições seguidas
+       (${fmtDate(prev.d)}: ${n1(prev.magra)} kg · ${fmtDate(last.d)}: ${n1(last.magra)} kg).<br>
+       → <b>+300 kcal na dieta imediatamente.</b> É o modo de falha de abril–maio, quando perdeu 2 kg de massa magra.</div>`
+    : "";
 
   /* chart */
   document.getElementById("chart").innerHTML = data.length>=2 ? bfChart(data) : `<p class="muted small">Registre pelo menos 2 medições pro gráfico aparecer.</p>`;
@@ -540,15 +965,15 @@ function renderMetas(){
     let st;
     if(near) st = near.bf<=target+0.4 ? `<span class="pill">✓ no trilho</span>` : `<span class="pill r">✗ acima</span>`;
     else st = cd<today ? `<span class="pill y">sem medição</span>` : `<span class="pill b">futuro</span>`;
-    ck += `<tr><td>${fmtDate(cd)}</td><td>${target.toFixed(1)}%</td><td>${near?near.bf.toFixed(1)+"%":"—"}</td><td>${st}</td></tr>`;
+    ck += `<tr><td>${fmtDate(cd)}</td><td>${n1(target)}%</td><td>${near?n1(near.bf)+"%":"—"}</td><td>${st}</td></tr>`;
   }
   document.getElementById("cktable").innerHTML = ck;
 
   /* table */
   let t = "<tr><th>Data</th><th>Peso</th><th>Gord%</th><th>Magra</th><th>Músc</th><th>Visc</th><th></th></tr>";
   for(const e of data.slice().reverse()){
-    t += `<tr><td>${fmtDate(e.d)}</td><td>${e.peso.toFixed(1)}</td><td><b>${e.bf.toFixed(1)}</b></td>
-      <td>${e.magra!=null?e.magra.toFixed(1):"—"}</td><td>${e.musc!=null?e.musc.toFixed(1):"—"}</td><td>${e.visc??"—"}</td>
+    t += `<tr><td>${fmtDate(e.d)}</td><td>${n1(e.peso)}</td><td><b>${n1(e.bf)}</b></td>
+      <td>${e.magra!=null?n1(e.magra):"—"}</td><td>${e.musc!=null?n1(e.musc):"—"}</td><td>${e.visc??"—"}</td>
       <td><button class="del" onclick="delBody('${e.d}')">✕</button></td></tr>`;
   }
   document.getElementById("bodytable").innerHTML = t;
@@ -593,7 +1018,7 @@ function bfChart(data){
   s+=`<polyline points="${pts}" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linejoin="round"/>`;
   for(const e of data) s+=`<circle cx="${X(T(e.d))}" cy="${Y(e.bf)}" r="3.5" fill="#4ade80"/>`;
   const lastE = data[data.length-1];
-  s+=`<text x="${Math.min(X(T(lastE.d))+6,W-44)}" y="${Y(lastE.bf)-8}" fill="#4ade80" font-size="11" font-weight="700">${lastE.bf.toFixed(1)}%</text>`;
+  s+=`<text x="${Math.min(X(T(lastE.d))+6,W-44)}" y="${Y(lastE.bf)-8}" fill="#4ade80" font-size="11" font-weight="700">${n1(lastE.bf)}%</text>`;
   const months=[["2026-05-01","mai"],["2026-06-01","jun"],["2026-07-01","jul"],["2026-08-01","ago"],["2026-09-01","set"],["2026-10-01","out"],["2026-11-01","nov"],["2026-12-01","dez"]];
   for(const [d,l] of months){
     const t=T(d);
@@ -626,7 +1051,9 @@ function delLog(idx){
 
 /* ================= BACKUP ================= */
 function exportData(){
-  const blob = new Blob([JSON.stringify({version:3, exported:new Date().toISOString(), logs:store.logs, body:store.body, variant:store.variant},null,1)],{type:"application/json"});
+  const blob = new Blob([JSON.stringify({version:4, exported:new Date().toISOString(),
+    logs:store.logs, body:store.body, variant:store.variant,
+    diet:store.diet, cremosos:store.cremosos},null,1)],{type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = `lucas-pt-backup-${localDate()}.json`;
@@ -649,6 +1076,8 @@ function importData(input){
         store.body = cur.concat(d.body);
       }
       if(d.variant && typeof d.variant==="object") store.variant = Object.assign(store.variant, d.variant);
+      if(d.diet && typeof d.diet==="object") store.diet = Object.assign(store.diet, d.diet);
+      if(Array.isArray(d.cremosos)) store.cremosos = [...new Set(store.cremosos.concat(d.cremosos))].sort();
       alert("Backup importado! ✅");
       renderDay(); renderMetas();
     }catch(e){ alert("Arquivo inválido: "+e.message) }

@@ -1,0 +1,458 @@
+{
+  "_meta": {
+    "versao": "1.0",
+    "gerado": "2026-07-25",
+    "fonte": "PT/Dietary program/RECEITAS.md",
+    "regra_critica": "Todas as receitas rendem 3 porções. Os macros abaixo são SEMPRE POR PORÇÃO, nunca por batelada. Nunca exibir valor de batelada na UI.",
+    "total_receitas": 21,
+    "total_shakes": 5
+  },
+
+  "categorias": [
+    {
+      "id": "proteico",
+      "nome": "Proteico",
+      "emoji": "🍦",
+      "cor_sugerida": "#7c3aed",
+      "composicao": "Iogurte natural ou banana + leite em pó + whey",
+      "slot": "17:30 — pré-treino",
+      "frequencia": "3–4x por semana",
+      "faixa_kcal": [172, 227],
+      "faixa_prot": [20, 26],
+      "funcao": "Matar o doce da tarde COM proteína dentro",
+      "regra": "É a ÚNICA categoria que pode ocupar o slot das 17:30. Aquele horário exige 32 g de proteína."
+    },
+    {
+      "id": "cremoso",
+      "nome": "Cremoso de sobremesa",
+      "emoji": "🍨",
+      "cor_sugerida": "#db2777",
+      "composicao": "Iogurte natural + leite em pó, SEM whey",
+      "slot": "Pós-jantar — sobremesa",
+      "frequencia": "até 3x por semana",
+      "faixa_kcal": [121, 158],
+      "faixa_prot": [7, 10],
+      "funcao": "Sobremesa cremosa e substancial",
+      "regra": "Nunca no slot das 17:30. Pós-jantar é intercambiável com sorbet."
+    },
+    {
+      "id": "sorbet",
+      "nome": "Sorbet de fruta",
+      "emoji": "🍧",
+      "cor_sugerida": "#0891b2",
+      "composicao": "Só fruta congelada batida",
+      "slot": "Pós-jantar — sobremesa",
+      "frequencia": "padrão diário",
+      "faixa_kcal": [60, 70],
+      "faixa_prot": [0, 1.2],
+      "funcao": "Doce diário no preço mais baixo possível",
+      "regra": "Nunca no slot das 17:30 — proteína zero. Pós-jantar cabe todo dia."
+    }
+  ],
+
+  "receitas": [
+    {
+      "id": "chocolate",
+      "nome": "Chocolate",
+      "categoria": "proteico",
+      "do_lucas": true,
+      "ingredientes": [
+        "Iogurte natural 450 ml",
+        "Whey chocolate 2 scoops"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 172,
+      "prot_porcao": 21,
+      "nota": "Receita original do Lucas, já proteica. Foi ela que revelou o ajuste que as outras precisavam."
+    },
+    {
+      "id": "chocolate-reforcado",
+      "nome": "Chocolate reforçado",
+      "categoria": "proteico",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 450 ml",
+        "Whey chocolate 2 scoops",
+        "Leite em pó desnatado 2 col. sopa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 220,
+      "prot_porcao": 26,
+      "nota": "Mais cremosidade sem custo relevante. Maior proteína da lista."
+    },
+    {
+      "id": "maracuja-proteico",
+      "nome": "Maracujá proteico",
+      "categoria": "proteico",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Polpa de maracujá com sementes 250 ml",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Whey baunilha 1,5 scoop (45 g)",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 209,
+      "prot_porcao": 21,
+      "fibra_porcao": 7,
+      "nota": "Maracujá é ácido e domina o whey — usar baunilha ou sem sabor, NUNCA chocolate."
+    },
+    {
+      "id": "morango-proteico",
+      "nome": "Morango proteico",
+      "categoria": "proteico",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Morango congelado 250 g",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Whey baunilha 1,5 scoop",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 185,
+      "prot_porcao": 20,
+      "nota": null
+    },
+    {
+      "id": "manga-proteico",
+      "nome": "Manga proteico",
+      "categoria": "proteico",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Manga congelada 200 g",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Whey baunilha 1,5 scoop",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 199,
+      "prot_porcao": 20,
+      "nota": null
+    },
+    {
+      "id": "doce-de-leite-proteico",
+      "nome": "Doce de leite proteico",
+      "categoria": "proteico",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 300 ml",
+        "Leite em pó desnatado 50 g",
+        "Whey baunilha 1,5 scoop",
+        "Canela",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 205,
+      "prot_porcao": 23,
+      "nota": "Sem fruta. O mais parecido com sorvete de verdade."
+    },
+    {
+      "id": "banana-canela",
+      "nome": "Banana-canela",
+      "categoria": "proteico",
+      "base": "banana",
+      "do_lucas": false,
+      "ingredientes": [
+        "2 bananas maduras congeladas",
+        "Leite semidesnatado 300 ml",
+        "Whey baunilha 2 scoops",
+        "Canela"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 187,
+      "prot_porcao": 20,
+      "nota": "Base banana: mais cremosa naturalmente, não precisa de leite em pó."
+    },
+    {
+      "id": "chocolate-amendoim",
+      "nome": "Chocolate-amendoim",
+      "categoria": "proteico",
+      "base": "banana",
+      "do_lucas": false,
+      "ingredientes": [
+        "2 bananas maduras congeladas",
+        "Leite semidesnatado 300 ml",
+        "Whey chocolate 2 scoops",
+        "Pasta de amendoim 20 g"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 227,
+      "prot_porcao": 22,
+      "nota": "A mais calórica da lista — dia de escalada longa, não dia de descanso."
+    },
+    {
+      "id": "banana-cacau",
+      "nome": "Banana-cacau",
+      "categoria": "proteico",
+      "base": "banana",
+      "do_lucas": false,
+      "ingredientes": [
+        "2 bananas maduras congeladas",
+        "Leite semidesnatado 300 ml",
+        "Whey chocolate 2 scoops",
+        "Cacau em pó 100% 1 col. sopa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 200,
+      "prot_porcao": 21,
+      "nota": null
+    },
+
+    {
+      "id": "maracuja",
+      "nome": "Maracujá",
+      "categoria": "cremoso",
+      "do_lucas": true,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Polpa de maracujá com sementes 250 ml",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 149,
+      "prot_porcao": 8.6,
+      "fibra_porcao": 7,
+      "nota": "Receita original do Lucas. A mais nutritiva da categoria — polpa com semente entrega ~25% da meta diária de fibra."
+    },
+    {
+      "id": "morango",
+      "nome": "Morango",
+      "categoria": "cremoso",
+      "do_lucas": true,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Morango congelado 250 g",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 144,
+      "prot_porcao": 7,
+      "nota": "Receita original do Lucas. A mais baixa em caloria da categoria."
+    },
+    {
+      "id": "manga-cremoso",
+      "nome": "Manga",
+      "categoria": "cremoso",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Manga congelada 200 g",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 139,
+      "prot_porcao": 8,
+      "nota": null
+    },
+    {
+      "id": "abacaxi-hortela",
+      "nome": "Abacaxi-hortelã",
+      "categoria": "cremoso",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Abacaxi congelado 200 g",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Folhas de hortelã"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 132,
+      "prot_porcao": 8,
+      "nota": "A bromelina do abacaxi corta o iogurte se ficar mais de 48 h montado — congelar no mesmo dia."
+    },
+    {
+      "id": "doce-de-leite-falso",
+      "nome": "Doce de leite falso",
+      "categoria": "cremoso",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 300 ml",
+        "Leite em pó desnatado 50 g",
+        "Canela",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 121,
+      "prot_porcao": 10,
+      "nota": "Melhor relação da categoria: menor caloria e maior proteína. Sem fruta."
+    },
+    {
+      "id": "coco",
+      "nome": "Coco",
+      "categoria": "cremoso",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Coco ralado sem açúcar 15 g",
+        "Sucralose — dose baixa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 130,
+      "prot_porcao": 8.5,
+      "nota": null
+    },
+    {
+      "id": "banana-canela-cremoso",
+      "nome": "Banana-canela cremoso",
+      "categoria": "cremoso",
+      "do_lucas": false,
+      "ingredientes": [
+        "Iogurte natural 250 ml",
+        "2 bananas maduras congeladas",
+        "Leite em pó desnatado 3 col. sopa (~40 g)",
+        "Canela"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 158,
+      "prot_porcao": 8,
+      "nota": "A mais calórica da categoria, e a mais cremosa."
+    },
+
+    {
+      "id": "sorbet-manga",
+      "nome": "Sorbet de manga",
+      "categoria": "sorbet",
+      "do_lucas": true,
+      "ingredientes": [
+        "Manga congelada 300 g",
+        "Água 2 col. sopa"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 60,
+      "prot_porcao": 0.8,
+      "nota": "A manga precisa das 2 colheres de água pra dar liga."
+    },
+    {
+      "id": "sorbet-uva",
+      "nome": "Sorbet de uva",
+      "categoria": "sorbet",
+      "do_lucas": true,
+      "ingredientes": [
+        "Uva congelada 300 g"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 69,
+      "prot_porcao": 0.7,
+      "nota": "O melhor da lista em textura — uva tem água e açúcar na proporção exata, não precisa de nada. ATENÇÃO: uva já é fruta fixa da salada de frutas (80 g/dia). Alternar com manga pra não dobrar."
+    },
+    {
+      "id": "sorbet-manga-abacaxi",
+      "nome": "Sorbet manga-abacaxi",
+      "categoria": "sorbet",
+      "do_lucas": false,
+      "ingredientes": [
+        "Manga congelada 200 g",
+        "Abacaxi congelado 150 g"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 62,
+      "prot_porcao": 0.7,
+      "nota": null
+    },
+    {
+      "id": "sorbet-uva-morango",
+      "nome": "Sorbet uva-morango",
+      "categoria": "sorbet",
+      "do_lucas": false,
+      "ingredientes": [
+        "Uva congelada 200 g",
+        "Morango congelado 150 g"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 62,
+      "prot_porcao": 0.7,
+      "nota": null
+    },
+    {
+      "id": "sorbet-manga-maracuja",
+      "nome": "Sorbet manga-maracujá",
+      "categoria": "sorbet",
+      "do_lucas": false,
+      "ingredientes": [
+        "Manga congelada 250 g",
+        "Polpa de maracujá 100 ml"
+      ],
+      "porcoes": 3,
+      "kcal_porcao": 70,
+      "prot_porcao": 1.2,
+      "fibra_porcao": 3,
+      "nota": null
+    }
+  ],
+
+  "shakes": [
+    {
+      "id": "shake-vespera",
+      "nome": "Shake de véspera",
+      "quando": "Ao acordar, dia de escalada matinal",
+      "preparo": "Bater na noite anterior e deixar na geladeira em garrafa fechada",
+      "ingredientes": ["1 banana", "Whey 1/2 scoop", "Leite semidesnatado 200 ml"],
+      "kcal": 245,
+      "prot": 20,
+      "destaque": true
+    },
+    {
+      "id": "shake-pretreino",
+      "nome": "Shake pré-treino",
+      "quando": "17:30",
+      "preparo": null,
+      "ingredientes": ["Whey 1 scoop", "Leite semidesnatado 200 ml"],
+      "kcal": 216,
+      "prot": 31,
+      "destaque": false
+    },
+    {
+      "id": "shake-delivery",
+      "nome": "Shake antes de dormir",
+      "quando": "Só no dia de delivery — fecha a proteína do dia",
+      "preparo": null,
+      "ingredientes": ["Whey 1 scoop", "Leite semidesnatado 200 ml"],
+      "kcal": 216,
+      "prot": 31,
+      "destaque": false
+    },
+    {
+      "id": "shake-emergencia",
+      "nome": "Café da manhã de emergência",
+      "quando": "Acordou atrasado — 3 min",
+      "preparo": null,
+      "ingredientes": ["Whey 1 scoop", "Leite semidesnatado 200 ml", "1 banana", "Aveia 20 g"],
+      "kcal": 380,
+      "prot": 32,
+      "destaque": false
+    },
+    {
+      "id": "shake-complemento",
+      "nome": "Complemento de Creami",
+      "quando": "Quando o 17:30 é Creami proteico",
+      "preparo": null,
+      "ingredientes": ["Whey 1/2 scoop", "Leite 150 ml"],
+      "kcal": 132,
+      "prot": 17,
+      "destaque": false
+    }
+  ],
+
+  "tecnica": [
+    "Congelar 24 h — 12 h não basta, o centro fica mole e o processamento vira sorvete líquido.",
+    "Nivelar a superfície antes de congelar. Superfície torta = processamento irregular.",
+    "Modo: Lite Ice Cream para proteico e cremoso com base iogurte · Ice Cream para base banana (mais densa) · Sorbet para fruta pura.",
+    "Ficou farelento? Re-spin com 1 col. de sopa de leite. Nunca mais que isso — 2 colheres e vira milk-shake.",
+    "A pitada de sal não é opcional em nenhuma receita com whey. Sem ela o gosto fica chapado e artificial.",
+    "Sucralose em dose baixa está correto — adoçante não interfere em perda de gordura nas doses usadas."
+  ],
+
+  "regras_globais": [
+    "Teto de 2 doses de whey por dia. Em 3 doses a proteína estoura e a gordura cai abaixo do piso de 65 g. Uma dose é sempre o pré-treino; a outra é livre.",
+    "Só a categoria proteica pode ocupar o slot das 17:30.",
+    "Pós-jantar: sorbet é o padrão diário; cremoso substitui o sorbet até 3x por semana.",
+    "Alternar sorbet de manga e de uva — uva já é 80 g fixos na salada de frutas."
+  ]
+}

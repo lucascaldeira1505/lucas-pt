@@ -1,0 +1,315 @@
+{
+  "_meta": {
+    "versao": "1.0",
+    "gerado": "2026-07-25",
+    "fonte": "PT/Dietary program/BASE_ALIMENTAR.md + NUTRITION_PROFILE.md",
+    "principio_de_ui": "Lucas NÃO conta calorias e não quer contar. Esta aba é CHECKLIST + REFERÊNCIA, nunca um food logger. Não construir campo de input de alimento, não somar kcal do dia, não pedir pesagem de comida. Os números existem para consulta, não para digitação."
+  },
+
+  "bloco": {
+    "nome": "Bloco 1 — front-load agressivo",
+    "inicio": "2026-07-27",
+    "fim": "2026-08-24",
+    "kcal_alvo": 2095,
+    "kcal_base": 2000,
+    "kcal_sobremesa": 95,
+    "prot_alvo": 170,
+    "gord_alvo": 65,
+    "gord_piso": 63,
+    "carb_alvo": 205,
+    "fibra_alvo": 30,
+    "agua_alvo_l": 3.5,
+    "tdee_medido": 2750,
+    "deficit_dia": 655,
+    "deficit_pct": 24,
+    "gordura_semana_kg": 0.63,
+    "proposito": "Apagar o +1,3 kg de gordura do hiato de 02–25/07 e voltar ao trilho recalibrado.",
+    "saida_obrigatoria": {
+      "data": "2026-08-24",
+      "kcal": 2300,
+      "texto": "Déficit agressivo é ferramenta com data de validade, não estilo de vida. Em 24/08 sobe para 2.300 kcal — não é opcional."
+    },
+    "medicoes": ["2026-08-01", "2026-08-08", "2026-08-15", "2026-08-22"]
+  },
+
+  "stop_rules": [
+    {
+      "id": "massa-magra",
+      "gatilho": "Massa magra abaixo de 62 kg em 2 medições seguidas",
+      "acao": "+300 kcal imediatamente",
+      "porque": "É exatamente o modo de falha de abril–maio, quando perdeu 2 kg de massa magra. Não repete.",
+      "severidade": "critica"
+    },
+    {
+      "id": "revisao-24-08",
+      "gatilho": "24/08/2026",
+      "acao": "Subir para 2.300 kcal",
+      "porque": "Fim programado do bloco agressivo.",
+      "severidade": "critica"
+    },
+    {
+      "id": "forca-regredindo",
+      "gatilho": "Carga ou reps caindo em 2 sessões seguidas",
+      "acao": "Cortar 1 sessão de escalada na semana ANTES de mexer na comida",
+      "porque": "Recuperação insuficiente. Treino não é a variável a cortar primeiro.",
+      "severidade": "media"
+    },
+    {
+      "id": "trilho-atrasado",
+      "gatilho": "Fora do trilho de gordura % depois de 3 semanas",
+      "acao": "Cortar ~150 kcal de comida. NÃO adicionar cardio.",
+      "porque": "Mais cardio compete com a recuperação da escalada e da força. Comida menos 150 não compete com nada.",
+      "severidade": "media"
+    }
+  ],
+
+  "refeicoes_dia_escalada_manha": {
+    "rotulo": "Dia com escalada de manhã (seg, ter, qua, sex)",
+    "total_kcal": 2050,
+    "total_prot": 177,
+    "slots": [
+      { "hora": "ao acordar", "nome": "Shake de véspera", "kcal": 245, "prot": 20, "receita_id": "shake-vespera" },
+      { "hora": "pós-escalada", "nome": "Café da manhã (sem pão de sal)", "kcal": 276, "prot": 30, "opcoes_ref": "cafes" },
+      { "hora": "12:30", "nome": "Almoço", "kcal": 555, "prot": 47, "opcoes_ref": "almocos" },
+      { "hora": "17:30", "nome": "Pré-treino", "kcal": 359, "prot": 32, "opcoes_ref": "pretreinos", "destaque": true },
+      { "hora": "21:00", "nome": "Jantar (pós-treino)", "kcal": 550, "prot": 48, "opcoes_ref": "jantares" },
+      { "hora": "pós-jantar", "nome": "Sobremesa", "kcal_min": 65, "kcal_max": 150, "prot": 0, "opcoes_ref": "sobremesas" }
+    ]
+  },
+
+  "refeicoes_dia_sem_escalada": {
+    "rotulo": "Dia sem escalada de manhã (quinta, fim de semana)",
+    "total_kcal": 2065,
+    "total_prot": 166,
+    "slots": [
+      { "hora": "08:00", "nome": "Café da manhã completo (com pão de sal)", "kcal": 411, "prot": 35, "opcoes_ref": "cafes" },
+      { "hora": "12:30", "nome": "Almoço", "kcal": 580, "prot": 50, "opcoes_ref": "almocos" },
+      { "hora": "17:30", "nome": "Pré-treino (+ pasta de amendoim)", "kcal": 419, "prot": 33, "opcoes_ref": "pretreinos", "destaque": true },
+      { "hora": "21:00", "nome": "Jantar", "kcal": 590, "prot": 48, "opcoes_ref": "jantares" },
+      { "hora": "pós-jantar", "nome": "Sobremesa", "kcal_min": 65, "kcal_max": 150, "prot": 0, "opcoes_ref": "sobremesas" }
+    ]
+  },
+
+  "item_fixo_diario": {
+    "nome": "Salada de frutas",
+    "composicao_fixa": true,
+    "slot": "17:30",
+    "frutas": [
+      { "nome": "Abacaxi", "g": 80, "ancora": "1 fatia média", "kcal": 40 },
+      { "nome": "Manga", "g": 80, "ancora": "1/2 manga pequena", "kcal": 48 },
+      { "nome": "Uva", "g": 80, "ancora": "~15 uvas", "kcal": 55, "alerta": true }
+    ],
+    "total_g": 240,
+    "total_kcal": 143,
+    "total_carb": 37,
+    "alerta": "A uva é a que trai. 80 g = ~15 uvas. Comida de punhado, 40 uvas são 150 kcal invisíveis por dia — apaga 20% do déficit. Separar a porção antes de sentar.",
+    "porque_aqui": "Vale 20% do carboidrato do dia. Fica no pré-treino porque ali o carbo tem função (combustível do treino das 20h) e porque substitui o doce da tarde. Não é sobremesa de jantar."
+  },
+
+  "cafes": [
+    { "id": "cafe-a", "nome": "Ovos mexidos com lombo e mussarela", "tempo_min": 8, "itens": ["2 ovos", "Lombo canadense magro defumado 60 g (~3 fatias)", "Mussarela 20 g", "Pão de sal 50 g"], "kcal": 411, "prot": 34.5, "kcal_sem_pao": 276, "prot_sem_pao": 30 },
+    { "id": "cafe-b", "nome": "Omelete recheado", "tempo_min": 8, "itens": ["Omelete de 2 ovos recheado com lombo canadense 60 g + mussarela 20 g", "Pão de sal 50 g ao lado"], "kcal": 411, "prot": 34.5, "kcal_sem_pao": 276, "prot_sem_pao": 30 },
+    { "id": "cafe-c", "nome": "Misto quente com ovos por cima", "tempo_min": 10, "itens": ["Pão de sal aberto com lombo canadense + mussarela", "2 ovos fritos por cima"], "kcal": 411, "prot": 34.5, "nota": "Neste formato o pão entra sempre — se for dia de escalada matinal, o shake vira 1/2 banana." },
+    { "id": "cafe-d", "nome": "Panqueca proteica (sem ovo inteiro dominante)", "tempo_min": 10, "itens": ["Aveia 30 g", "1 ovo", "4 claras", "Whey 1 scoop"], "kcal": 375, "prot": 41, "nota": "Alternativa 1–2x por semana quando saturar de ovo." },
+    { "id": "cafe-e", "nome": "Emergência (3 min)", "tempo_min": 3, "itens": ["Whey 1 scoop", "Leite 200 ml", "1 banana", "Aveia 20 g"], "kcal": 380, "prot": 32 }
+  ],
+
+  "regra_cafe": {
+    "combinacao_fixa": "Ovo SEMPRE acompanhado de mussarela + lombo canadense magro defumado. Carbo do café é pão de sal (não tapioca).",
+    "alerta_sodio": "Lombo canadense é curado: ~700–800 mg de sódio por 60 g, todo dia, mais o pão de sal. Não engorda, mas RETÉM ÁGUA — e a bioimpedância é semanal. Uma leitura 400 g mais alta pode ser sal, não gordura. Antídotos: bater os 3,5 L de água e avaliar tendência de 3–4 semanas, nunca ponto isolado."
+  },
+
+  "almocos": [
+    { "id": "almoco-a", "nome": "Frango com arroz e feijão", "itens": ["Frango 150 g", "Arroz 130 g", "Feijão 80 g", "Salada", "Azeite 8 g"], "kcal": 557, "prot": 51 },
+    { "id": "almoco-b", "nome": "Lombo de porco com arroz e feijão", "itens": ["Lombo de porco 150 g", "Arroz 130 g", "Feijão 80 g", "Salada", "Azeite 5 g"], "kcal": 555, "prot": 45 },
+    { "id": "almoco-c", "nome": "Carne moída com arroz e feijão", "itens": ["Patinho moído 130 g", "Arroz 130 g", "Feijão 80 g", "Salada", "Azeite 5 g"], "kcal": 560, "prot": 43 },
+    { "id": "almoco-d", "nome": "Tilápia com arroz e feijão", "itens": ["Tilápia 180 g", "Arroz 130 g", "Feijão 80 g", "Salada", "Azeite 8 g"], "kcal": 540, "prot": 49 },
+    { "id": "almoco-e", "nome": "Macarrão com carne moída", "itens": ["Patinho moído 130 g", "Macarrão 130 g", "Molho de tomate", "Mussarela 20 g", "Salada"], "kcal": 554, "prot": 47, "tag": "macarrão — 1–2x por semana, substitui o arroz" },
+    { "id": "almoco-f", "nome": "Frango com lentilha", "itens": ["Frango 130 g", "Arroz 100 g", "Lentilha 150 g", "Salada", "Azeite 8 g"], "kcal": 598, "prot": 51, "fibra": 14, "tag": "fibra alta" },
+    { "id": "almoco-g", "nome": "Frango com carbo complementar", "itens": ["Frango 150 g", "Arroz 80 g", "Feijão 80 g", "Inhame ou batata-doce 100 g", "Salada", "Azeite 5 g"], "kcal": 600, "prot": 51, "tag": "dia de escalada longa ou sessão dupla" }
+  ],
+
+  "regra_almoco": {
+    "base": "Arroz + feijão SEMPRE. A dupla não se substitui.",
+    "macarrao": "Substitui o ARROZ 1–2x por semana. O feijão continua.",
+    "complementares": "Mandioca, batata, batata-doce e inhame são carbo COMPLEMENTAR — entram ao lado do arroz em porção reduzida (opção G), nunca como carbo único.",
+    "template": "1 palma de proteína + arroz (1 punho) + feijão (1 concha) + salada livre + 1 col. sopa de azeite",
+    "excecao_feijao": "Feijão é a única exceção ao 'fresco todo dia'. Panela a cada 3 dias, guarda na geladeira. Vale pra lentilha."
+  },
+
+  "pretreinos": [
+    { "id": "pt-a", "nome": "Salada de frutas + shake", "itens": ["Salada de frutas 240 g", "Whey 1 scoop em 200 ml de leite"], "kcal": 359, "prot": 32, "tag": "padrão em dia de escalada matinal" },
+    { "id": "pt-a-plus", "nome": "Salada de frutas + shake + pasta de amendoim", "itens": ["Salada de frutas 240 g", "Whey 1 scoop em 200 ml de leite", "Pasta de amendoim 10 g"], "kcal": 419, "prot": 33, "tag": "dia SEM shake matinal" },
+    { "id": "pt-b", "nome": "Creami proteico + salada de frutas", "itens": ["1 porção de Creami proteico", "Salada de frutas 120 g", "Whey 1/2 scoop em 150 ml de leite"], "kcal": 404, "prot": 37, "tag": "ver categoria proteica em receitas.json" },
+    { "id": "pt-c", "nome": "Sanduíche de frango", "itens": ["Pão de sal 50 g", "Frango desfiado 100 g", "Mussarela 15 g", "Salada de frutas 120 g"], "kcal": 430, "prot": 35 },
+    { "id": "pt-d", "nome": "Iogurte de fruta reforçado", "itens": ["1 iogurte de fruta 170 g", "Whey 1 scoop misturado", "Salada de frutas 120 g"], "kcal": 390, "prot": 30, "nota": "Iogurte de fruta é carboidrato/sobremesa, não proteína (~4 g P/100 g). O whey faz o trabalho." }
+  ],
+
+  "regra_pretreino": {
+    "porque_e_o_slot_mais_importante": "É o horário em que Lucas belisca doce e biscoito — a causa do estrago de julho. A estratégia não é resistir, é ocupar o lugar. Todas as opções são doces de propósito.",
+    "pasta_de_amendoim": "Entra SÓ nos dias em que NÃO tomou o shake matinal. O leite do shake já traz 6 g de gordura; nos dias de escalada de manhã a gordura fecha sem a pasta.",
+    "proibicao": "Sorbet de fruta pura NUNCA ocupa este slot. Proteína zero. Trocar biscoito por sorbet resolve a caloria e não resolve a massa magra."
+  },
+
+  "jantares": [
+    { "id": "jantar-a", "nome": "Frango em tiras ao molho com macarrão", "tempo_min": 13, "itens": ["Frango em tiras 150 g", "Macarrão 130 g", "Molho de tomate", "Salada", "Azeite 12 g"], "kcal": 551, "prot": 48 },
+    { "id": "jantar-b", "nome": "Tilápia com cuscuz", "tempo_min": 10, "itens": ["Tilápia 190 g", "Flocão de milho (cuscuz) 55 g", "Salada", "Azeite 12 g"], "kcal": 550, "prot": 51 },
+    { "id": "jantar-c", "nome": "Carne moída com batata em cubos", "tempo_min": 15, "itens": ["Patinho moído 130 g", "Batata inglesa 250 g em cubos", "Salada", "Azeite 12 g"], "kcal": 563, "prot": 41 },
+    { "id": "jantar-d", "nome": "Lombo de porco em tiras com arroz", "tempo_min": 15, "itens": ["Lombo de porco em tiras 150 g", "Arroz 130 g", "Salada", "Azeite 12 g"], "kcal": 534, "prot": 43 },
+    { "id": "jantar-e", "nome": "Omelete reforçado", "tempo_min": 6, "itens": ["3 ovos + 3 claras", "Lombo canadense 50 g", "Mussarela 25 g", "Pão de sal 50 g", "Salada", "Azeite 5 g"], "kcal": 607, "prot": 50, "tag": "carta de escape — 6 min, 50 g de proteína", "destaque": true },
+    { "id": "jantar-f", "nome": "Bisteca fina com macarrão", "tempo_min": 14, "itens": ["Bisteca suína fina 150 g", "Macarrão 120 g", "Mussarela 25 g", "Salada", "Azeite 8 g"], "kcal": 576, "prot": 47 }
+  ],
+
+  "regra_jantar": {
+    "teto_tempo_min": 15,
+    "porque": "Lucas chega do treino às 21h com fome. Cozinhar do zero nesse horário 5x por semana é onde planos morrem.",
+    "eliminados": "Mandioca fresca (30–40 min), batata-doce e batata inglesa assadas (45–50 min), assados e cortes inteiros. Vão pro almoço como carbo complementar.",
+    "proteina": "Só corte rápido: tiras, cubos, filé fino, moída ou ovo. Peito inteiro e pernil não entram às 21h.",
+    "carbos_rapidos": [
+      { "nome": "Cuscuz de milho (flocão)", "tempo": "5 min", "destaque": true },
+      { "nome": "Macarrão", "tempo": "8–10 min" },
+      { "nome": "Pão de sal", "tempo": "instantâneo" },
+      { "nome": "Batata inglesa em cubos pequenos", "tempo": "12–15 min" },
+      { "nome": "Arroz", "tempo": "18 min, mas cozinha sozinho enquanto faz a proteína" },
+      { "nome": "Mandioca congelada pré-cozida", "tempo": "15 min" }
+    ]
+  },
+
+  "sobremesas": {
+    "regra": "Sorbet de fruta (60–70 kcal) é o padrão de TODO DIA. Cremoso de iogurte (121–158 kcal) substitui o sorbet até 3x por semana.",
+    "custo": [
+      { "cenario": "Sem sobremesa", "kcal_dia": 0, "deficit": 754, "pct": 27 },
+      { "cenario": "Sorbet diário", "kcal_dia": 65, "deficit": 690, "pct": 25 },
+      { "cenario": "+ cremoso 3x/semana", "kcal_dia": 100, "deficit": 655, "pct": 24 }
+    ],
+    "justificativa": "Decisão consciente, não descuido de conta. Custa 3,5% do déficit. O trilho aprovado exige ~220 kcal/dia de déficit — 655 ainda é 3x isso. Dieta de 2.000 kcal sem nenhuma sobremesa é dieta que dura três semanas.",
+    "ver": "receitas.json — categorias 'cremoso' e 'sorbet'"
+  },
+
+  "escalada": {
+    "manha": {
+      "regra": "O pré-escalada NÃO tem horário — tem formato. Líquido, pronto de véspera, zero preparo. NÃO existe acordar mais cedo pra comer.",
+      "shake": { "ingredientes": ["1 banana", "Whey 1/2 scoop", "Leite semidesnatado 200 ml"], "kcal": 245, "prot": 20 },
+      "planos": [
+        { "id": "A", "como": "Bebe direto da garrafa nos primeiros minutos acordado", "quando": "Antes de sair de casa" },
+        { "id": "B", "como": "Leva a garrafa na mochila e bebe DURANTE a sessão — boulder tem descanso entre tentativas", "quando": "Primeiros 20–30 min da escalada" },
+        { "id": "C", "como": "Não tomou nada", "quando": "Ajuste automático: café da manhã vira a versão COMPLETA com pão de sal (411 kcal) e na véspera o carbo do jantar sobe uma porção" }
+      ],
+      "nota": "O total do dia fica igual nas três hipóteses — muda só onde as calorias ficam. A conta não quebra, então não há culpa se o shake não aconteceu. Ainda assim A ou B > C: escalar 1h30 de V4 em jejum com déficit de 655 kcal transforma sessão de progressão em sessão de sobrevivência, e a meta é V5."
+    },
+    "noite": {
+      "horario": "19:00–20:30",
+      "regra": "A refeição das 17:30 JÁ é a pré-escalada — timing perfeito, nada muda. Jantar às 21:00 depois da sessão."
+    },
+    "regra_geral": "Nenhuma sessão de 1h30 começa com mais de 4 h sem comer."
+  },
+
+  "semana_tipo": [
+    { "dia": "Segunda", "contexto": "escalada manhã · Push A", "escalada_manha": true, "cafe": "cafe-a", "almoco": "almoco-a", "pretreino": "pt-a", "jantar": "jantar-b", "kcal": 1987, "prot": 184 },
+    { "dia": "Terça", "contexto": "escalada manhã · Lower A", "escalada_manha": true, "cafe": "cafe-b", "almoco": "almoco-b", "pretreino": "pt-a", "jantar": "jantar-a", "kcal": 1986, "prot": 175 },
+    { "dia": "Quarta", "contexto": "escalada manhã · Pull", "escalada_manha": true, "cafe": "cafe-a", "almoco": "almoco-e", "pretreino": "pt-a", "jantar": "jantar-d", "kcal": 1968, "prot": 172 },
+    { "dia": "Quinta", "contexto": "SEM escalada · Push B", "escalada_manha": false, "cafe": "cafe-a", "almoco": "almoco-f", "pretreino": "pt-a-plus", "jantar": "jantar-e", "kcal": 2035, "prot": 169, "nota": "Regra D4 do programa: Pull na quarta -> sem escalada na quinta." },
+    { "dia": "Sexta", "contexto": "escalada manhã · Lower B + circuito de core", "escalada_manha": true, "cafe": "cafe-c", "almoco": "almoco-d", "pretreino": "pt-a", "jantar": "jantar-c", "kcal": 1983, "prot": 172 },
+    { "dia": "Sábado", "contexto": "DIA DE DELIVERY", "escalada_manha": false, "cafe": "cafe-a", "almoco": "delivery-almoco", "pretreino": null, "jantar": "delivery", "kcal": 2098, "prot": 157, "delivery": true },
+    { "dia": "Domingo", "contexto": "sem academia", "escalada_manha": false, "cafe": "cafe-a", "almoco": "almoco-g", "pretreino": "pt-b", "jantar": "jantar-a", "kcal": 1914, "prot": 165 }
+  ],
+
+  "semana_fechamento": {
+    "kcal_media": 1996,
+    "kcal_media_com_sobremesa": 2095,
+    "prot_media": 170,
+    "gord_media": 65,
+    "deficit_media": 655,
+    "nota": "Verificações: arroz+feijão em 5 dos 7 almoços (quarta é o dia de macarrão, sábado a fruta ocupa o carbo). Salada de frutas 7/7. Jantar 6–15 min todos os dias. Whey no máximo 2 doses/dia. Proteína nunca abaixo de 157 g."
+  },
+
+  "delivery": {
+    "frequencia": "1x por semana",
+    "custo_atual": 1000,
+    "custo_meta": 500,
+    "protocolo": [
+      "Café da manhã e almoço NORMAIS, proteína cheia. Chegar com fome na pizza é o erro clássico.",
+      "Corta o pré-treino das 17:30 naquele dia — abre ~420 kcal. A salada de frutas migra pro almoço.",
+      "Pizza: 3 a 4 fatias, borda simples, sem borda recheada. Hambúrguer: 1 carne, e escolhe OU batata OU bacon/queijo extra, não os dois.",
+      "Zero refrigerante e zero sobremesa. É onde 400 kcal entram sem prazer proporcional.",
+      "1 scoop de whey antes de dormir — o dia de delivery é o único abaixo de 170 g de proteína.",
+      "Sem 'aproveitar o dia'. O dia seguinte volta ao normal, não ao déficit compensatório."
+    ]
+  },
+
+  "dia_impossivel": [
+    { "n": 1, "regra": "Bate a proteína", "detalhe": "170 g, mesmo que seja com whey e frango de padaria. É a única métrica que protege massa magra." },
+    { "n": 2, "regra": "Não bebe caloria", "detalhe": "Refrigerante, suco, álcool. Comida ruim tem saciedade; líquido não tem nenhuma." },
+    { "n": 3, "regra": "Volta na próxima refeição, não na próxima segunda", "detalhe": "Julho custou 1,3 kg de gordura porque foram 23 dias seguidos, não porque foi um dia ruim." }
+  ],
+
+  "checklist_diario": [
+    { "id": "refeicoes", "label": "4 refeições feitas" },
+    { "id": "proteina", "label": "Proteína ~170 g", "critico": true },
+    { "id": "arroz-feijao", "label": "Arroz + feijão no almoço" },
+    { "id": "salada-frutas", "label": "Salada de frutas (abacaxi + manga + 15 uvas)" },
+    { "id": "sobremesa", "label": "Sobremesa pós-jantar — sorbet, ou cremoso se ainda tem cota (máx. 3x/semana)" },
+    { "id": "agua", "label": "3,5 L de água" },
+    { "id": "creatina", "label": "5 g de creatina" },
+    { "id": "shake-escalada", "label": "Se escalada de manhã: shake de véspera tomado (ou café completo depois)", "condicional": true },
+    { "id": "shake-amanha", "label": "À noite: bater o shake de amanhã e deixar na geladeira", "noturno": true },
+    { "id": "treino", "label": "Treino registrado no relógio" }
+  ],
+
+  "checklist_semanal": [
+    { "id": "bioimpedancia", "label": "1 medição de bioimpedância (manhã, jejum, mesma balança)", "critico": true },
+    { "id": "feijao", "label": "Panela de feijão (a cada 3 dias)" },
+    { "id": "compras", "label": "Compras da semana" }
+  ],
+
+  "substituicoes": {
+    "proteina": {
+      "ancora": "1 palma da mão aberta sem dedos, espessura da palma (~170 g cozido) = 48–55 g de proteína",
+      "equivalentes": ["Peito de frango 170 g", "Lombo de porco 170 g", "Patinho 150 g", "Tilápia ou merluza 200 g", "Coxa de frango sem pele 170 g", "Bisteca suína magra 170 g", "Atum em água 1,5 lata", "4 ovos + 5 claras"]
+    },
+    "carboidrato": {
+      "ancora": "1 punho fechado = 30–40 g de carbo",
+      "equivalentes": ["Arroz 120 g cozido", "Macarrão 130 g", "Arroz integral 120 g", "Pão de sal 50 g", "Flocão de milho 40 g (cuscuz)", "Batata inglesa 200 g", "Mandioca 130 g", "Inhame 150 g", "Batata-doce 180 g"],
+      "restricao_almoco": "Arroz + feijão é a base — não substituir a dupla inteira. Macarrão troca o arroz 1–2x/semana. Mandioca, batata, batata-doce e inhame são complemento.",
+      "restricao_jantar": "Só os de <=15 min: cuscuz, macarrão, pão de sal, batata em cubos, arroz."
+    },
+    "gordura": {
+      "ancora": "1 polegar = ~10 g",
+      "equivalentes": ["Azeite 1 col. sopa", "Pasta de amendoim 15 g", "Abacate 60 g", "3 castanhas-do-pará", "10 amêndoas"]
+    },
+    "emergencia": "1 scoop de whey em 200 ml de leite = 31 g de proteína por 216 kcal. Resolve qualquer buraco em 60 segundos.",
+    "teto_whey": "Máximo 2 doses de whey por dia. Em 3 doses a proteína estoura e a gordura cai abaixo do piso de 65 g."
+  },
+
+  "fibra": {
+    "alvo": 30,
+    "porque": "Fibra é o que faz 2.000 kcal não parecer 2.000 kcal. Sem ela passa fome e fura o plano.",
+    "fontes": [
+      { "nome": "Feijão carioca", "porcao": "80 g cozido (diário)", "fibra": 4 },
+      { "nome": "Lentilha", "porcao": "150 g cozida", "fibra": 12 },
+      { "nome": "Aveia", "porcao": "30 g", "fibra": 3 },
+      { "nome": "Salada de frutas", "porcao": "240 g", "fibra": 3 },
+      { "nome": "Polpa de maracujá com sementes", "porcao": "1 porção de Creami", "fibra": 7 },
+      { "nome": "Pão integral", "porcao": "2 fatias", "fibra": 4 },
+      { "nome": "Salada verde + legumes", "porcao": "à vontade", "fibra": 6 }
+    ]
+  },
+
+  "suplementos": [
+    { "nome": "Creatina", "dose": "5 g/dia, TODOS os dias incluindo descanso", "status": "ok", "nota": "Não causa ganho de gordura — o 1–2 kg é água intramuscular." },
+    { "nome": "Whey", "dose": "1–2 doses/dia", "status": "ok", "nota": "Com laticínio puro restrito, whey é ferramenta primária pra fechar 170 g." },
+    { "nome": "Taurina", "dose": "2 g", "status": "neutro", "nota": "Inócua, evidência fraca. Manter ou tirar não muda nada." },
+    { "nome": "Ômega-3", "dose": "2–3 g EPA+DHA", "status": "opcional", "nota": "Vale adicionar se peixe ficar abaixo de 2x/semana." },
+    { "nome": "Lipodrene Xtreme", "dose": null, "status": "recusado", "nota": "RECUSADO em 25/07. Formulações incluíram ephedra, DMAA, DMHA, ioimbina, sinefrina. Sem registro ANVISA, sem rótulo confiável. Lucas é virgem de cafeína e faz 11 sessões/semana com picos de FC a 180 — cenário de risco cardíaco. Substituto se quiser estímulo: cafeína pura 150–200 mg. Se o assunto voltar, manter a posição e sugerir cardiologista." }
+  ],
+
+  "compras_semanais": {
+    "proteina": ["Peito de frango 1,5 kg (em tiras/cubos pro jantar, inteiro pro almoço)", "Lombo de porco 1 kg (metade em tiras)", "Bisteca suína fina 400 g", "Patinho ou coxão mole moído 600 g", "Tilápia ou merluza (filé) 800 g", "Lombo canadense magro defumado 500 g", "Ovos 2 dúzias", "Claras pasteurizadas 1 L", "Atum em água 3 latas"],
+    "base_almoco": ["Arroz branco 2 kg", "Arroz integral 1 kg", "Feijão carioca 1 kg", "Lentilha 500 g", "Macarrão 500 g"],
+    "carbo_complementar": ["Pão de sal 10 unidades", "Flocão de milho (cuscuz) 500 g", "Batata inglesa 1,5 kg", "Inhame 500 g", "Batata-doce 500 g", "Mandioca congelada 500 g", "Aveia em flocos 500 g", "Pão integral 1 pacote"],
+    "fruta": ["Abacaxi 1 unidade", "Manga 5 unidades + 3 extra pra congelar", "Uva 700 g + 500 g extra pra congelar", "Banana 10 unidades", "Morango congelado 500 g", "Polpa de maracujá com semente 1 L"],
+    "laticinio_gordura": ["Leite semidesnatado 6 L", "Iogurte natural 2 L (só pro Creami)", "Leite em pó desnatado 500 g", "Mussarela 300 g", "Iogurte de fruta 3 unidades", "Azeite extravirgem", "Pasta de amendoim integral sem açúcar", "Castanha-do-pará", "Coco ralado sem açúcar 100 g"],
+    "vegetais": ["Alface", "Tomate", "Pepino", "Cenoura", "Brócolis", "Abobrinha", "Couve-flor"],
+    "outros": ["Cacau em pó 100% 200 g", "Sucralose líquida", "Canela em pó", "Creatina", "Whey (2 sabores)"]
+  }
+}
