@@ -1,3 +1,12 @@
 node_modules/
 .DS_Store
 *.log
+
+# Dados pessoais de saúde — este repo é PÚBLICO, nada disso pode subir.
+# (o export do app Saúde contém TUDO: peso, FC, sono, ciclos, registros médicos)
+*.zip
+export*.xml
+exportar*.xml
+treinos_watch.csv
+treinos_watch.md
+*backup*.json
