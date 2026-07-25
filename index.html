@@ -169,7 +169,20 @@ td:first-child,th:first-child{text-align:left}
   </div>
   <div class="card">
     <h2>🧗 Escalada × academia</h2>
-    <p class="muted small">Boulder 5–6×/sem já é o "Pull" diário. A academia cobre o resto: empurrar 2×, pernas 2×, puxar 1× moderado, core todo dia + circuito na sexta.<br><br><b style="color:var(--warn)">Sem escalada na quinta</b> (dia seguinte ao Pull).</p>
+    <p class="muted small">Boulder 5–6×/sem já é o "Pull" diário. A academia cobre o resto: empurrar 2×, pernas 2×, puxar 1× moderado, core todo dia + circuito na sexta.<br><br><b style="color:var(--warn)">Sem escalada no dia seguinte ao Pull.</b></p>
+  </div>
+  <div class="card">
+    <h2>⚡ Semana corrida (trabalho apertou)</h2>
+    <p class="muted small">Objetivo: <b style="color:var(--txt)">manter, não progredir</b> — mesmas cargas, RIR 2–3. Escolha os treinos Alt no menu da aba Treino.</p>
+    <table>
+      <tr><th>Dias livres</th><th>O que fazer</th></tr>
+      <tr><td>4</td><td>Semana normal sem Lower B (+ Stiff e Leg Curl no Lower A)</td></tr>
+      <tr><td>3</td><td>Alt 1 + Alt 2 + Alt 3 (espaçados)</td></tr>
+      <tr><td>2</td><td>Alt 1 + Alt 2</td></tr>
+      <tr><td>1</td><td>Alt 2 (pernas + core)</td></tr>
+    </table>
+    <h3>Regras</h3>
+    <p class="muted small">• Se o tempo apertar na sessão: cortar o Z2 antes de cortar séries<br>• Escalada leve ou folga no dia seguinte ao Alt 3<br>• <b style="color:var(--warn)">Comida acompanha o gasto:</b> semana corrida = ~2.100–2.200 kcal/dia (vs. ~2.400 na cheia). Proteína inalterada: 150–170 g. Comer em "modo semana cheia" sem treinar custou +1,3 kg de gordura em julho.</p>
   </div>
 </section>
 
@@ -263,8 +276,42 @@ const PROGRAM = {
       {n:"CORE · Russian Twist c/ anilha",sets:3,reps:"12/lado",core:true},
       {n:"CORE · Prancha Lateral c/ elev. quadril",sets:3,reps:"10/lado",core:true},
     ]},
+  /* ---- semana alternativa (trabalho apertou): manter, não progredir ---- */
+  alt_1: { name:"⚡ Alt 1 — Push + Core (~45 min)",
+    warm:"Semana corrida: manter, não progredir (RIR 2–3, mesmas cargas). Aquecimento rápido: band pull-apart 2×15 + 1 série leve do 1º exercício.",
+    ex:[
+      {n:"Supino no Smith",sets:4,reps:"8",obs:"descanso 90s"},
+      {n:"Desenvolvimento na máquina",sets:3,reps:"10"},
+      {n:"Elevação lateral c/ halteres",sets:3,reps:"15"},
+      {n:"Tríceps corda (pushdown)",sets:3,reps:"12"},
+      {n:"Ab Wheel (do joelho)",sets:3,reps:"8–10",core:true},
+      {n:"Pallof Press (cabo)",sets:3,reps:"12/lado",core:true},
+    ]},
+  alt_2: { name:"⚡ Alt 2 — Lower completo + Core (~50 min)",
+    warm:"Semana corrida: manter, não progredir. Aquecimento: squat opener 60s + leg swings 2×10/perna + agachamento livre 2×12.",
+    ex:[
+      {n:"Agachamento no Smith",sets:4,reps:"8",obs:"descanso 90s"},
+      {n:"Stiff (RDL) c/ halteres ou Smith",sets:3,reps:"10"},
+      {n:"Leg Press",sets:3,reps:"10"},
+      {n:"Panturrilha em pé",sets:4,reps:"12"},
+      {n:"Hanging Knee Raises",sets:3,reps:"10–12",core:true},
+      {n:"Prancha",sets:3,reps:"45–60s",core:true,time:true},
+    ]},
+  alt_3: { name:"⚡ Alt 3 — Upper misto + prehab (~45 min)",
+    warm:"Semana corrida: manter, não progredir. Aquecimento: band pull-apart 2×15 + wall slides 2×10. ⚠️ Escalada leve (ou folga) amanhã.",
+    ex:[
+      {n:"Desenvolvimento no Smith (sentado)",sets:3,reps:"8"},
+      {n:"Remada na máquina (apoio no peito)",sets:3,reps:"10"},
+      {n:"Supino inclinado c/ halteres",sets:3,reps:"10"},
+      {n:"Face Pull (cabo)",sets:3,reps:"15",obs:"prehab"},
+      {n:"Rotação Externa no cabo",sets:2,reps:"15/lado",obs:"prehab manguito"},
+      {n:"Cable Crunch (ajoelhado)",sets:3,reps:"12",core:true},
+      {n:"Prancha Lateral",sets:3,reps:"30–40s/lado",core:true,time:true},
+    ]},
 };
-const DAY_ORDER = ["push_a","lower_a","pull","push_b","lower_b"];
+const DAY_ORDER = ["push_a","lower_a","pull","push_b","lower_b","alt_1","alt_2","alt_3"];
+const SHORT = {push_a:"Push A",lower_a:"Lower A",pull:"Pull",push_b:"Push B",lower_b:"Lower B",
+               alt_1:"Alt 1",alt_2:"Alt 2",alt_3:"Alt 3"};
 
 /* metas — trilho recalibrado 2026-07-25 (partida 23,5%; meta final 18% mantida) */
 const GOALS = {
@@ -305,12 +352,17 @@ function initDaySel(){
   renderDay();
 }
 function lastFor(dayKey, exName){
-  const logs = store.logs.filter(l=>l.day===dayKey);
-  for(let i=logs.length-1;i>=0;i--){
-    const e = logs[i].ex.find(x=>x.n===exName);
-    if(e && e.s.some(s=>s.w||s.r)) return {date:logs[i].d, sets:e.s};
-  }
-  return null;
+  // 1º: mesmo dia de treino. 2º: qualquer dia (exercícios se repetem entre
+  // treinos normais e os Alt — a carga é a mesma, então serve de referência).
+  const scan = logs => {
+    for(let i=logs.length-1;i>=0;i--){
+      const e = logs[i].ex.find(x=>x.n===exName);
+      if(e && e.s.some(s=>s.w!=null||s.r!=null)) return {date:logs[i].d, sets:e.s, day:logs[i].day};
+    }
+    return null;
+  };
+  const all = store.logs;
+  return scan(all.filter(l=>l.day===dayKey)) || scan(all);
 }
 function renderDay(){
   const k = document.getElementById("daysel").value;
@@ -319,8 +371,9 @@ function renderDay(){
   document.getElementById("exlist").innerHTML = p.ex.map((e,ei)=>{
     const last = lastFor(k,e.n);
     const unit = e.time ? "s" : "kg";
+    const from = last && last.day!==k ? ` · vindo de ${SHORT[last.day]||last.day}` : "";
     const lastTxt = last
-      ? `Última vez (${fmtDate(last.date)}): ` + last.sets.filter(s=>s.w||s.r).map(s=>`${s.w??"–"}${unit}×${s.r??"–"}`).join(" · ")
+      ? `Última vez (${fmtDate(last.date)}${from}): ` + last.sets.filter(s=>s.w!=null||s.r!=null).map(s=>`${s.w??"–"}${unit}×${s.r??"–"}`).join(" · ")
       : "Primeira vez — calibrar: 2 últimas reps difíceis, execução limpa";
     let rows = "";
     for(let i=0;i<e.sets;i++){
