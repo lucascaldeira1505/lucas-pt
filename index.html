@@ -47,6 +47,10 @@ select,input{background:var(--card2);border:1px solid var(--line);color:var(--tx
 /* treino */
 .ex{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px}
 .ex .name{font-weight:600;font-size:15px}
+.swap{background:var(--card);border:1px solid var(--line);color:var(--acc);border-radius:7px;
+  font-size:13px;padding:1px 7px;margin-left:7px;line-height:1.4;vertical-align:middle}
+.vtag{background:var(--acc-dim);color:var(--acc);border-radius:10px;padding:1px 7px;
+  font-size:10px;font-weight:700;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.3px}
 .ex .target{color:var(--acc);font-size:13px;margin:2px 0 6px}
 .ex .last{color:var(--dim);font-size:12px;margin-bottom:8px}
 .setrow{display:flex;gap:6px;align-items:center;margin-bottom:6px}
@@ -225,10 +229,10 @@ const PROGRAM = {
   push_a: { name:"Seg — Push A (peito)",
     warm:"Aquecimento (~4 min): band pull-apart 2×15 · rotação de ombro c/ bastão 2×10 · 1 série leve do 1º exercício.",
     ex:[
-      {n:"Supino no Smith",sets:4,reps:"8",obs:"composto principal · descanso 90s"},
-      {n:"Desenvolvimento na máquina",sets:3,reps:"10"},
+      {n:"Supino no Smith",sets:4,reps:"8",obs:"composto principal · descanso 90s",alt:["Supino com Barra","Supino na máquina (chest press)"]},
+      {n:"Desenvolvimento na máquina",sets:3,reps:"10",alt:["Desenvolvimento c/ halteres"]},
       {n:"Supino inclinado c/ halteres",sets:3,reps:"10"},
-      {n:"Elevação lateral c/ halteres",sets:3,reps:"15"},
+      {n:"Elevação lateral c/ halteres",sets:3,reps:"15",alt:["Elevação Lateral no cabo"]},
       {n:"Tríceps corda (pushdown)",sets:3,reps:"12"},
       {n:"Ab Wheel (do joelho)",sets:3,reps:"8–10",core:true},
       {n:"Prancha",sets:2,reps:"45–60s",core:true,time:true},
@@ -236,8 +240,8 @@ const PROGRAM = {
   lower_a: { name:"Ter — Lower A (quadríceps)",
     warm:"Aquecimento (~5 min): squat opener 60s · leg swings 2×10/perna · agachamento livre 2×12.",
     ex:[
-      {n:"Agachamento no Smith",sets:4,reps:"8",obs:"descanso 90s"},
-      {n:"Leg Press",sets:3,reps:"10"},
+      {n:"Agachamento no Smith",sets:4,reps:"8",obs:"descanso 90s",alt:["Agachamento livre (barra)","Hack Squat"]},
+      {n:"Leg Press",sets:3,reps:"10",alt:["Hack Squat"]},
       {n:"Cadeira Extensora",sets:3,reps:"12"},
       {n:"Agachamento Búlgaro c/ halteres",sets:3,reps:"10/perna"},
       {n:"Panturrilha em pé",sets:4,reps:"12"},
@@ -247,8 +251,8 @@ const PROGRAM = {
   pull: { name:"Qua — Pull moderado + prehab",
     warm:"Aquecimento (~4 min): scapular pull-up/dead hang 2×8 · band pull-apart 2×15. ⚠️ Sem escalada amanhã (quinta).",
     ex:[
-      {n:"Puxada Frontal",sets:3,reps:"10",obs:"moderado — a escalada já cobre puxar"},
-      {n:"Remada na máquina (apoio no peito)",sets:3,reps:"10"},
+      {n:"Puxada Frontal",sets:3,reps:"10",obs:"moderado — a escalada já cobre puxar",alt:["Puxada pegada neutra"]},
+      {n:"Remada na máquina (apoio no peito)",sets:3,reps:"10",alt:["Remada baixa no cabo"]},
       {n:"Face Pull (cabo)",sets:3,reps:"15",obs:"prehab"},
       {n:"Crucifixo Invertido",sets:3,reps:"15"},
       {n:"Rotação Externa no cabo",sets:2,reps:"15/lado",obs:"prehab manguito"},
@@ -259,7 +263,7 @@ const PROGRAM = {
   push_b: { name:"Qui — Push B (ombro)",
     warm:"Aquecimento (~4 min): band pull-apart 2×15 · wall slides 2×10 · 1 série leve do 1º exercício.",
     ex:[
-      {n:"Desenvolvimento no Smith (sentado)",sets:4,reps:"8",obs:"composto principal · descanso 90s"},
+      {n:"Desenvolvimento no Smith (sentado)",sets:4,reps:"8",obs:"composto principal · descanso 90s",alt:["Desenvolvimento c/ halteres","Desenvolvimento com Barra (OHP)"]},
       {n:"Supino na máquina (chest press)",sets:3,reps:"10"},
       {n:"Crucifixo na máquina (peck deck)",sets:3,reps:"12"},
       {n:"Elevação Lateral no cabo",sets:3,reps:"15"},
@@ -270,9 +274,9 @@ const PROGRAM = {
   lower_b: { name:"Sex — Lower B (posterior) + Core",
     warm:"Aquecimento (~5 min): knight stretch 60s/lado · leg swings 2×10 · good morning só com barra 2×10.",
     ex:[
-      {n:"Stiff (RDL) c/ halteres ou Smith",sets:3,reps:"10"},
+      {n:"Stiff (RDL) c/ halteres",sets:3,reps:"10",alt:["Stiff no Smith","Stiff com Barra"]},
       {n:"Leg Curl (sentado)",sets:3,reps:"12"},
-      {n:"Hip Thrust (máquina ou Smith)",sets:3,reps:"10"},
+      {n:"Hip Thrust (máquina)",sets:3,reps:"10",alt:["Hip Thrust no Smith"]},
       {n:"Panturrilha Sentado",sets:3,reps:"15"},
       {n:"CORE · Hanging Leg Raises",sets:3,reps:"8–12",core:true},
       {n:"CORE · Ab Wheel",sets:3,reps:"8–10",core:true},
@@ -284,9 +288,9 @@ const PROGRAM = {
   alt_1: { name:"⚡ Alt 1 — Push + Core (~45 min)",
     warm:"Semana corrida: manter, não progredir (RIR 2–3, mesmas cargas). Aquecimento rápido: band pull-apart 2×15 + 1 série leve do 1º exercício.",
     ex:[
-      {n:"Supino no Smith",sets:4,reps:"8",obs:"descanso 90s"},
-      {n:"Desenvolvimento na máquina",sets:3,reps:"10"},
-      {n:"Elevação lateral c/ halteres",sets:3,reps:"15"},
+      {n:"Supino no Smith",sets:4,reps:"8",obs:"descanso 90s",alt:["Supino com Barra","Supino na máquina (chest press)"]},
+      {n:"Desenvolvimento na máquina",sets:3,reps:"10",alt:["Desenvolvimento c/ halteres"]},
+      {n:"Elevação lateral c/ halteres",sets:3,reps:"15",alt:["Elevação Lateral no cabo"]},
       {n:"Tríceps corda (pushdown)",sets:3,reps:"12"},
       {n:"Ab Wheel (do joelho)",sets:3,reps:"8–10",core:true},
       {n:"Pallof Press (cabo)",sets:3,reps:"12/lado",core:true},
@@ -294,9 +298,9 @@ const PROGRAM = {
   alt_2: { name:"⚡ Alt 2 — Lower completo + Core (~50 min)",
     warm:"Semana corrida: manter, não progredir. Aquecimento: squat opener 60s + leg swings 2×10/perna + agachamento livre 2×12.",
     ex:[
-      {n:"Agachamento no Smith",sets:4,reps:"8",obs:"descanso 90s"},
-      {n:"Stiff (RDL) c/ halteres ou Smith",sets:3,reps:"10"},
-      {n:"Leg Press",sets:3,reps:"10"},
+      {n:"Agachamento no Smith",sets:4,reps:"8",obs:"descanso 90s",alt:["Agachamento livre (barra)","Hack Squat"]},
+      {n:"Stiff (RDL) c/ halteres",sets:3,reps:"10",alt:["Stiff no Smith","Stiff com Barra"]},
+      {n:"Leg Press",sets:3,reps:"10",alt:["Hack Squat"]},
       {n:"Panturrilha em pé",sets:4,reps:"12"},
       {n:"Hanging Knee Raises",sets:3,reps:"10–12",core:true},
       {n:"Prancha",sets:3,reps:"45–60s",core:true,time:true},
@@ -304,8 +308,8 @@ const PROGRAM = {
   alt_3: { name:"⚡ Alt 3 — Upper misto + prehab (~45 min)",
     warm:"Semana corrida: manter, não progredir. Aquecimento: band pull-apart 2×15 + wall slides 2×10. ⚠️ Escalada leve (ou folga) amanhã.",
     ex:[
-      {n:"Desenvolvimento no Smith (sentado)",sets:3,reps:"8"},
-      {n:"Remada na máquina (apoio no peito)",sets:3,reps:"10"},
+      {n:"Desenvolvimento no Smith (sentado)",sets:3,reps:"8",alt:["Desenvolvimento c/ halteres","Desenvolvimento com Barra (OHP)"]},
+      {n:"Remada na máquina (apoio no peito)",sets:3,reps:"10",alt:["Remada baixa no cabo"]},
       {n:"Supino inclinado c/ halteres",sets:3,reps:"10"},
       {n:"Face Pull (cabo)",sets:3,reps:"15",obs:"prehab"},
       {n:"Rotação Externa no cabo",sets:2,reps:"15/lado",obs:"prehab manguito"},
@@ -329,7 +333,30 @@ const store = {
   set logs(v){ localStorage.setItem("lpt2_logs",JSON.stringify(v)) },
   get body(){ try{return JSON.parse(localStorage.getItem("lpt2_body")||"[]")}catch(e){return []} },
   set body(v){ localStorage.setItem("lpt2_body",JSON.stringify(v)) },
+  // variante escolhida por exercício-base: {"Supino no Smith":"Supino com Barra"}
+  get variant(){ try{return JSON.parse(localStorage.getItem("lpt2_variant")||"{}")}catch(e){return {}} },
+  set variant(v){ localStorage.setItem("lpt2_variant",JSON.stringify(v)) },
 };
+
+/* ---- variantes de exercício (barra vs Smith vs máquina) ----
+   As cargas NÃO são comparáveis entre variantes, então cada uma tem seu
+   próprio histórico: o log guarda o nome da variante efetivamente feita. */
+function variantsOf(e){ return [e.n].concat(e.alt||[]) }
+function resolveEx(e){
+  const opts = variantsOf(e), chosen = store.variant[e.n];
+  return (chosen && opts.includes(chosen)) ? chosen : e.n;
+}
+function cycleVariant(baseName){
+  const day = PROGRAM[document.getElementById("daysel").value];
+  const e = day.ex.find(x=>x.n===baseName);
+  if(!e) return;
+  const opts = variantsOf(e);
+  const next = opts[(opts.indexOf(resolveEx(e))+1) % opts.length];
+  const v = store.variant;
+  if(next===e.n) delete v[e.n]; else v[e.n]=next;
+  store.variant = v;
+  renderDay();
+}
 
 /* ================= NAV ================= */
 function go(t,btn){
@@ -373,12 +400,16 @@ function renderDay(){
   const p = PROGRAM[k];
   document.getElementById("warmup").innerHTML = "🔥 " + p.warm;
   document.getElementById("exlist").innerHTML = p.ex.map((e,ei)=>{
-    const last = lastFor(k,e.n);
+    const nome = resolveEx(e);
+    const trocado = nome!==e.n;
+    const last = lastFor(k,nome);
     const unit = e.time ? "s" : "kg";
     const from = last && last.day!==k ? ` · vindo de ${SHORT[last.day]||last.day}` : "";
     const lastTxt = last
       ? `Última vez (${fmtDate(last.date)}${from}): ` + last.sets.filter(s=>s.w!=null||s.r!=null).map(s=>`${s.w??"–"}${unit}×${s.r??"–"}`).join(" · ")
       : "Primeira vez — calibrar: 2 últimas reps difíceis, execução limpa";
+    const swap = (e.alt&&e.alt.length)
+      ? `<button class="swap" onclick="cycleVariant('${e.n.replace(/'/g,"\\'")}')" title="Trocar variante">⇄</button>` : "";
     let rows = "";
     for(let i=0;i<e.sets;i++){
       const lw = last?.sets[i]?.w ?? "", lr = last?.sets[i]?.r ?? "";
@@ -388,7 +419,7 @@ function renderDay(){
       </div>`;
     }
     return `<div class="ex">
-      <div class="name">${e.core?"🧱 ":""}${e.n}</div>
+      <div class="name">${e.core?"🧱 ":""}${nome}${swap}${trocado?`<span class="vtag">trocado</span>`:""}</div>
       <div class="target">${e.sets} × ${e.reps}${e.obs?` <span class="obs">— ${e.obs}</span>`:""}</div>
       <div class="last">${lastTxt}</div>
       ${rows}
@@ -405,7 +436,7 @@ function saveWorkout(){
       const r = parseFloat(document.getElementById(`r-${ei}-${i}`).value);
       s.push({w:isNaN(w)?null:w, r:isNaN(r)?null:r});
     }
-    return {n:e.n,s};
+    return {n:resolveEx(e),s};   // grava a variante efetivamente feita
   });
   if(!ex.some(e=>e.s.some(s=>s.w!=null||s.r!=null))){ alert("Nenhuma série preenchida."); return }
   const logs = store.logs;
@@ -595,7 +626,7 @@ function delLog(idx){
 
 /* ================= BACKUP ================= */
 function exportData(){
-  const blob = new Blob([JSON.stringify({version:2, exported:new Date().toISOString(), logs:store.logs, body:store.body},null,1)],{type:"application/json"});
+  const blob = new Blob([JSON.stringify({version:3, exported:new Date().toISOString(), logs:store.logs, body:store.body, variant:store.variant},null,1)],{type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = `lucas-pt-backup-${localDate()}.json`;
@@ -617,6 +648,7 @@ function importData(input){
         const cur = store.body.filter(x=>!d.body.some(n=>n.d===x.d));
         store.body = cur.concat(d.body);
       }
+      if(d.variant && typeof d.variant==="object") store.variant = Object.assign(store.variant, d.variant);
       alert("Backup importado! ✅");
       renderDay(); renderMetas();
     }catch(e){ alert("Arquivo inválido: "+e.message) }
