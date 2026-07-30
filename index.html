@@ -174,6 +174,8 @@ td:first-child,th:first-child{text-align:left}
     <button onclick="startTimer(60)">⏱ 60s</button>
     <button onclick="startTimer(90)">⏱ 90s</button>
   </div>
+  <div class="alerta" style="margin-bottom:12px">💪 <b>Carga certa:</b> as 2 últimas reps saem difíceis, com execução limpa.
+    Se terminou a série com <b>3+ reps sobrando</b>, sobe <b>5–10% já na próxima série</b> — não espere a semana virar.</div>
   <div id="warmup" class="warmup"></div>
   <div id="exlist"></div>
   <button class="btn" onclick="saveWorkout()">✅ Salvar treino</button>
@@ -315,8 +317,9 @@ const PROGRAM = {
       {n:"Supino no Smith",sets:4,reps:"8",obs:"composto principal · descanso 90s",alt:["Supino com Barra","Supino na máquina (chest press)"]},
       {n:"Desenvolvimento na máquina",sets:3,reps:"10",alt:["Desenvolvimento c/ halteres"]},
       {n:"Supino inclinado c/ halteres",sets:3,reps:"10"},
+      {n:"Crucifixo na máquina (peck deck)",sets:3,reps:"12",obs:"novo — peito em amplitude longa"},
       {n:"Elevação lateral c/ halteres",sets:3,reps:"15",alt:["Elevação Lateral no cabo"]},
-      {n:"Tríceps corda (pushdown)",sets:3,reps:"12"},
+      {n:"Tríceps corda (pushdown)",sets:3,reps:"12",obs:"última série: 1–2 reps da falha"},
       {n:"Ab Wheel (do joelho)",sets:3,reps:"8–10",core:true,obs:"punho: só com faixa — senão troque ⇄",alt:["Cable Crunch (ajoelhado)","Dead Bug"]},
       {n:"Prancha",sets:2,reps:"45–60s",core:true,time:true,obs:"apoio nos antebraços (não nas palmas)"},
     ]},
@@ -327,7 +330,8 @@ const PROGRAM = {
       {n:"Leg Press",sets:3,reps:"10",alt:["Hack Squat"]},
       {n:"Cadeira Extensora",sets:3,reps:"12"},
       {n:"Agachamento Búlgaro c/ halteres",sets:3,reps:"10/perna"},
-      {n:"Panturrilha em pé",sets:4,reps:"12"},
+      {n:"Passada caminhando c/ halteres",sets:3,reps:"12 passos/perna",obs:"novo — unilateral, transfere pra escalada",alt:["Hack Squat","Afundo no Smith"]},
+      {n:"Panturrilha em pé",sets:4,reps:"12",obs:"última série: 1–2 reps da falha"},
       {n:"Dead Bug",sets:3,reps:"10/lado",core:true},
       {n:"Pallof Press (cabo)",sets:3,reps:"12/lado",core:true},
     ]},
@@ -339,7 +343,8 @@ const PROGRAM = {
       {n:"Face Pull (cabo)",sets:3,reps:"15",obs:"prehab"},
       {n:"Crucifixo Invertido",sets:3,reps:"15"},
       {n:"Rotação Externa no cabo",sets:2,reps:"15/lado",obs:"prehab manguito"},
-      {n:"Rosca Direta",sets:2,reps:"12",obs:"leve"},
+      {n:"Encolhimento (trapézio)",sets:3,reps:"15",obs:"novo — trapézio não é treinado pela escalada e não carrega cotovelo",alt:["Encolhimento no Smith"]},
+      {n:"Rosca Direta",sets:2,reps:"12",obs:"leve — a escalada já carrega bíceps"},
       {n:"Hanging Knee Raises",sets:3,reps:"10–12",core:true,obs:"progressão: joelho → perna reta → toes-to-bar"},
       {n:"Prancha Lateral",sets:3,reps:"30–40s/lado",core:true,time:true},
     ]},
@@ -350,7 +355,8 @@ const PROGRAM = {
       {n:"Supino na máquina (chest press)",sets:3,reps:"10"},
       {n:"Crucifixo na máquina (peck deck)",sets:3,reps:"12"},
       {n:"Elevação Lateral no cabo",sets:3,reps:"15"},
-      {n:"Tríceps Overhead (cabo)",sets:3,reps:"12"},
+      {n:"Crucifixo Invertido (peck deck reverso)",sets:3,reps:"15",obs:"novo — posterior de ombro, equilibra o volume de pressão"},
+      {n:"Tríceps Overhead (cabo)",sets:3,reps:"12",obs:"última série: 1–2 reps da falha"},
       {n:"Cable Crunch (ajoelhado)",sets:3,reps:"12",core:true},
       {n:"Pallof Press",sets:3,reps:"12/lado",core:true},
     ]},
@@ -361,7 +367,9 @@ const PROGRAM = {
       {n:"Leg Curl (sentado)",sets:3,reps:"12"},
       {n:"Hip Thrust (máquina)",sets:3,reps:"10",obs:"extensão de quadril — glúteo em amplitude curta",
        alt:["Hip Thrust no Smith","Pull-Through no cabo","Hiperextensão Inversa","Step-up alto c/ halteres","Glute Bridge no chão c/ barra"]},
-      {n:"Panturrilha Sentado",sets:3,reps:"15"},
+      {n:"Leg Press pés altos",sets:3,reps:"12",obs:"novo — posterior/glúteo, pés no alto da plataforma"},
+      {n:"Abdução de Quadril (máquina)",sets:3,reps:"15",obs:"novo — glúteo médio: estabiliza o quadril em degrau alto e protege o joelho"},
+      {n:"Panturrilha Sentado",sets:3,reps:"15",obs:"última série: 1–2 reps da falha"},
       {n:"CORE · Hanging Leg Raises",sets:3,reps:"8–12",core:true},
       {n:"CORE · Ab Wheel",sets:3,reps:"8–10",core:true,obs:"punho: só com faixa — senão troque ⇄",alt:["CORE · Cable Crunch","CORE · Dead Bug"]},
       {n:"CORE · Prancha com peso",sets:3,reps:"40–60s",core:true,time:true},
