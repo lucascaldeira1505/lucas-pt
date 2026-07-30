@@ -378,6 +378,18 @@ const PROGRAM = {
       {n:"CORE · Russian Twist c/ anilha",sets:3,reps:"12/lado",core:true},
       {n:"CORE · Prancha Lateral c/ elev. quadril",sets:3,reps:"10/lado",core:true},
     ]},
+  /* ---- core avulso: recuperar core perdido, ou dia sem musculação ---- */
+  core_dia: { name:"🧱 Core dedicado (~20 min)",
+    warm:"Circuito: 3 voltas, 45–60s entre exercícios e 90s entre voltas. ⚠️ Se for escalar DEPOIS, faça o core só ao voltar — core antes de escalar mata a tensão corporal, que é o que limita seu V4→V5.",
+    ex:[
+      {n:"CORE · Hanging Leg Raises",sets:3,reps:"8–12",core:true,obs:"suspenso — transferência direta pro overhang. Progressão: joelho → perna reta → toes-to-bar",alt:["CORE · Hanging Knee Raises"]},
+      {n:"CORE · Ab Wheel",sets:3,reps:"8–10",core:true,obs:"anti-extensão · punho: só com faixa — senão troque ⇄",alt:["Cable Crunch (ajoelhado)","CORE · Dead Bug"]},
+      {n:"Pallof Press (cabo)",sets:3,reps:"12/lado",core:true,obs:"anti-rotação"},
+      {n:"CORE · Prancha Lateral c/ elev. quadril",sets:3,reps:"10/lado",core:true,obs:"anti-flexão lateral"},
+      {n:"CORE · Prancha com peso",sets:3,reps:"40–60s",core:true,time:true,obs:"apoio nos antebraços, não nas palmas"},
+      {n:"Cable Crunch (ajoelhado)",sets:3,reps:"12",core:true,obs:"opcional, se sobrar tempo — flexão com carga, zero punho"},
+    ]},
+
   /* ---- semana alternativa (trabalho apertou): manter, não progredir ---- */
   alt_1: { name:"⚡ Alt 1 — Push + Core (~45 min)",
     warm:"🎽 Faixa de punho? (dia de pressão) · Semana corrida: manter, não progredir (RIR 2–3, mesmas cargas). Aquecimento rápido: band pull-apart 2×15 + 1 série leve do 1º exercício.",
@@ -411,9 +423,9 @@ const PROGRAM = {
       {n:"Prancha Lateral",sets:3,reps:"30–40s/lado",core:true,time:true},
     ]},
 };
-const DAY_ORDER = ["push_a","lower_a","pull","push_b","lower_b","alt_1","alt_2","alt_3"];
+const DAY_ORDER = ["push_a","lower_a","pull","push_b","lower_b","core_dia","alt_1","alt_2","alt_3"];
 const SHORT = {push_a:"Push A",lower_a:"Lower A",pull:"Pull",push_b:"Push B",lower_b:"Lower B",
-               alt_1:"Alt 1",alt_2:"Alt 2",alt_3:"Alt 3"};
+               core_dia:"Core",alt_1:"Alt 1",alt_2:"Alt 2",alt_3:"Alt 3"};
 
 /* metas — trilho recalibrado 2026-07-25 (partida 23,5%; meta final 18% mantida) */
 const GOALS = {
