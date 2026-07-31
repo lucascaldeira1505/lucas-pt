@@ -1,12 +1,10 @@
-const CACHE = "lucas-pt-v22";
+const CACHE = "lucas-pt-v23";
 const ASSETS = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./icon.svg",
-  "./icon-180.png",
-  "./data/dieta.json",
-  "./data/receitas.json"
+  "./icon-180.png"
 ];
 
 self.addEventListener("install", (e) => {
