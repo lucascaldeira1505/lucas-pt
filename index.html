@@ -204,8 +204,14 @@ td:first-child,th:first-child{text-align:left}
     <h2 style="margin-bottom:6px">Backup</h2>
     <p class="muted small">Os dados vivem só neste aparelho. Exporte 1×/semana (sábado) e mande no chat.</p>
     <button class="btn sec" onclick="exportData()">⬇️ Exportar backup (JSON)</button>
-    <button class="btn sec" onclick="document.getElementById('importfile').click()">⬆️ Importar backup</button>
+    <button class="btn sec" onclick="document.getElementById('importfile').click()">⬆️ Importar arquivo</button>
     <input type="file" id="importfile" accept=".json,application/json" style="display:none" onchange="importData(this)">
+    <button class="btn sec" onclick="abreColar()">⌨️ Colar backup (texto)</button>
+    <div id="colarbox" style="display:none;margin-top:10px">
+      <label class="flabel">Cole o JSON aqui</label>
+      <textarea id="colarjson" placeholder='{"version":5,…}' style="min-height:110px;font-size:13px"></textarea>
+      <button class="btn" onclick="importaTexto()">Importar do texto</button>
+    </div>
     <button class="btn" onclick="closeMenu()">Fechar</button>
   </div>
 </div>
@@ -770,12 +776,19 @@ function exportData(){
   a.download = `lucas-pt-backup-${localDate()}.json`;
   a.click();
 }
-function importData(input){
-  const f = input.files[0]; if(!f) return;
-  const r = new FileReader();
-  r.onload = ()=>{
-    try{
-      const d = JSON.parse(r.result);
+function abreColar(){
+  const b=document.getElementById("colarbox");
+  b.style.display = b.style.display==="none" ? "block" : "none";
+  if(b.style.display==="block") document.getElementById("colarjson").focus();
+}
+function importaTexto(){
+  const t = document.getElementById("colarjson").value.trim();
+  if(!t){ alert("Cole o conteúdo do backup primeiro."); return }
+  aplicaBackup(t);
+}
+function aplicaBackup(texto){
+  try{
+      const d = JSON.parse(texto);
       if(Array.isArray(d.logs)){
         const cur = store.logs;
         for(const l of d.logs) if(!cur.some(x=>x.d===l.d&&x.day===l.day)) cur.push(l);
@@ -790,8 +803,14 @@ function importData(input){
       if(d.checkin && typeof d.checkin==="object") store.checkin = Object.assign(store.checkin, d.checkin);
       alert("Backup importado! ✅");
       renderHoje(); renderDay(); renderMetas();
-    }catch(e){ alert("Arquivo inválido: "+e.message) }
-  };
+      const b=document.getElementById("colarbox");
+      if(b){ b.style.display="none"; document.getElementById("colarjson").value="" }
+  }catch(e){ alert("Backup inválido: "+e.message) }
+}
+function importData(input){
+  const f = input.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ()=>aplicaBackup(r.result);
   r.readAsText(f); input.value="";
 }
 
